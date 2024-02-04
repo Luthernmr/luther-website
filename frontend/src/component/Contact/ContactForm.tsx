@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Center,
   FormControl,
@@ -11,7 +10,6 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
 
 export default function ContactForm() {
   return (

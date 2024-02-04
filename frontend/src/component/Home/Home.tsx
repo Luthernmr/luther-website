@@ -4,7 +4,7 @@ export default function Acceuil ()
 {
     return (
         <Center>
-            <Heading>Cr</Heading>
+            <Heading>pr</Heading>
         </Center>
     )
 }

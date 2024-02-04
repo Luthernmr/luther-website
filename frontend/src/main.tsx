@@ -3,15 +3,34 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import '@fontsource/jetbrains-mono';
+import '@fontsource-variable/overpass';
+
+
 
 export const theme = extendTheme({
   colors: {
     brand: {
       100: '#f1f1f1',
       200: '#010101'
-    }
-  }
+    },
+    whity: {
+      500: "#c0c0c0", // Remplacez 'yourTagColor' par la couleur que vous souhaitez pour le tag
+    },
+  },
+  fonts: {
+    heading: `'Overpass Variable', sans-serif`,
+    body: `'JetBrains Mono', sans-serif`,
+  },
+  components: {
+    Tag: {
+      baseStyle: {
+        outlineColor: 'white',
+      },
+    },
+  },
 })
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
