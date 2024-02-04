@@ -14,10 +14,18 @@ import Header from "../Header/Header";
 import "rotating-text/dist/index.css";
 
 export default function Landing() {
-  const pres ="Delve*into*my*Cloud*and*DevOps*engineering*profile,*showcasing*achievements*in*digital*transformation,*automation,*and*continuous*improvement.";
+  const pres =
+    "Delve into my Cloud and DevOps engineering profile, showcasing achievements in digital transformation, automation, and continuous improvement.";
   const presTab = pres.split("");
-  const updatedPresTab = presTab.map(element => element.replace(/\*/g, " "));
-  console.log(updatedPresTab);
+  const expertises = [
+    "Cloud Engineering",
+    "DevOps",
+    "Automation",
+    "Continuous Integration",
+    "CI / CD",
+    "Web Development",
+  ];
+  console.log(presTab);
 
   return (
     <Box height="100vh">
@@ -30,24 +38,22 @@ export default function Landing() {
           color={"white"}
           spacing={10}
         >
-          <Wrap flexDirection={"row"} maxW={'70%'} spacing={0} justify={'center'} spacingY={4}>
-            {updatedPresTab.map((text) => (
-              <Heading id="hone">
-                {text === " " ? <p>&nbsp;</p> : text}
-              </Heading>
+          <Wrap
+            flexDirection={"row"}
+            maxW={"70%"}
+            spacing={0}
+            justify={"center"}
+            spacingY={4}
+          >
+            {presTab.map((text) => (
+              <Heading id="hone">{text === " " ? <p>&nbsp;</p> : text}</Heading>
             ))}
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
             <VStack spacing={4}>
               <Text id="content">SERVICES / EXPERTISE</Text>
               <Wrap justify="center" width={"60%"}>
-                {[
-                  "Cloud Engineering",
-                  "DevOps",
-                  "Automation",
-                  "Continuous Integration",
-                  "CI / CD",
-                ].map((expertise) => (
+                {expertises.map((expertise) => (
                   <WrapItem>
                     <Tag
                       id="content"
