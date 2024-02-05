@@ -5,14 +5,14 @@ import "./index.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import '@fontsource/jetbrains-mono';
 import '@fontsource-variable/overpass';
-
-
+import '@fontsource-variable/nunito';
+import '@fontsource/syncopate';
 
 export const theme = extendTheme({
   colors: {
     brand: {
       100: '#f1f1f1',
-      200: '#010101'
+      200: '#f1f1f1'
     },
     whity: {
       500: "#c0c0c0", // Remplacez 'yourTagColor' par la couleur que vous souhaitez pour le tag
@@ -20,7 +20,7 @@ export const theme = extendTheme({
   },
   fonts: {
     heading: `'Overpass Variable', sans-serif`,
-    body: `'JetBrains Mono', sans-serif`,
+    body: `'JetBrains Mono', sans-serif, nunito`,
   },
   components: {
     Tag: {

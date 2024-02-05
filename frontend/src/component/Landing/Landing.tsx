@@ -21,14 +21,14 @@ export default function Landing() {
     "Cloud Engineering",
     "DevOps",
     "Automation",
-    "Continuous Integration",
+    "Continuous Improvement",
     "CI / CD",
     "Web Development",
   ];
   console.log(presTab);
 
   return (
-    <Box height="100vh">
+    <Box height="100vh" align="center" id="services">
       <Header />
       <Center height={"80%"}>
         <VStack

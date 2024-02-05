@@ -6,13 +6,14 @@ import FOG from "vanta/dist/vanta.fog.min";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Footer from "./component/Footer/Footer";
+
+
 gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
   const otherRef = useRef(null);
-  const scrollBox = document.getElementById("scrollBox");
-  const landing = document.getElementById("landing");
 
   useEffect(() => {
     if (!vantaEffect) {
@@ -29,7 +30,7 @@ function App() {
           lowlightColor: 0x48bdd7,
           baseColor: 0x884a4,
           blurFactor: 0.84,
-          speed: 2,
+          speed: 0,
           zoom: 2,
         })
       );
@@ -50,14 +51,13 @@ function App() {
           lowlightColor: 0x787878,
           baseColor: 0x111111,
           blurFactor: 0.84,
-          speed: 2.4,
-          zoom: 0.5,
+          speed: 0,
+          zoom: 0.8,
         })
       );
     }
     gsap.to("#test", {
       scrollTrigger: {
-        markers: true, // Pour déboguer
         trigger: "#test",
         start: "40% 70%",
         end: "50% 60%",
@@ -86,6 +86,7 @@ function App() {
       <Box id="landing" ref={myRef}>
         <Landing />
         <Content />
+        <Footer />
       </Box>
     </>
   );
