@@ -14,6 +14,14 @@ import {
   VStack,
   Image,
   Flex,
+  Divider,
+  List,
+  ListItem,
+  HStack,
+  StatHelpText,
+  Stat,
+  UnorderedList,
+  Kbd,
 } from "@chakra-ui/react";
 import { FaLinkedin } from "react-icons/fa";
 import SocialButton from "../SocialButton";
@@ -22,6 +30,35 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+const devopsSkills = [
+  "CI / CD",
+  "GitHub Actions / GitLab CI",
+  "Docker",
+  "Kubernetes",
+  "Terraform",
+  "AWS",
+  "Shell",
+  "Scripting",
+];
+const devSkills = [
+  "Javascript",
+  "Typescript",
+  "React",
+  "Node",
+  "Express",
+  "NestJS",
+  "C++",
+  "C",
+  "HTML",
+  "CSS",
+  "ChakraUI",
+  "PostgreSQL",
+  "MySQL",
+  "REST",
+  "WebSockets",
+  "SocketIO",
+];
+
 export default function Content() {
   useEffect(() => {
     // Ciblez la boîte Chakra UI par son ID
@@ -94,7 +131,7 @@ export default function Content() {
           w={"10%"}
           minW={"10%"}
           id="preview"
-          overflow={"hidden"}
+          overflow={"auto"}
         >
           <Tabs
             variant="soft-rounded"
@@ -108,7 +145,7 @@ export default function Content() {
               <Tab color={"white"}>About me</Tab>
               <Tab color={"white"}>Skills</Tab>
               <Tab color={"white"}>Experiences</Tab>
-              <Tab color={"white"}>Eductation</Tab>
+              <Tab color={"white"}>Education</Tab>
             </TabList>
             <TabPanels h={"100%"} padding={4}>
               <TabPanel>
@@ -119,17 +156,110 @@ export default function Content() {
                   h={"100%"}
                 >
                   <Box width={"50%"}>
-                    <Heading>Hello ça swing ?</Heading>
-                    <Text>I am luther</Text>
+                    <Heading>Me</Heading>
+                    <Text></Text>
                   </Box>
                   <Image src="./src/assets/pdp0.png" boxSize={"50%"} />
                 </Flex>
               </TabPanel>
               <TabPanel>
                 <Heading>My skills</Heading>
+                <Grid marginTop={4} templateColumns="repeat(2, 1fr)" gap={2}>
+                  <GridItem colSpan={1}>
+                    <Heading size={"md"} mb={2}>
+                      DevOps
+                    </Heading>
+                    <Divider />
+                    <List mt={2}>
+                      {devopsSkills.map((skill) => (
+                        <Text size={"sm"} key={skill}>
+                          {skill}
+                        </Text>
+                      ))}
+                    </List>
+                  </GridItem>
+                  <GridItem colSpan={1}>
+                    <Heading size={"md"} mb={2}>
+                      Development{" "}
+                    </Heading>
+                    <Divider />
+                    <List mt={2}>
+                      {devSkills.map((skill) => (
+                        <Text size={"sm"} key={skill}>
+                          {skill}
+                        </Text>
+                      ))}
+                    </List>
+                  </GridItem>
+                </Grid>
               </TabPanel>
               <TabPanel>
-                <p>two!</p>
+                <Heading>My professional experience</Heading>
+                <Grid marginTop={4} templateColumns="repeat(2, 1fr)" gap={2}>
+                  <GridItem colSpan={1}>
+                    <HStack>
+                      <Image
+                        backgroundColor={"white"}
+                        src="./src/assets/keyrus.svg"
+                        boxSize={"60px"}
+                        p={2}
+                        mb={2}
+                      />
+                      <Flex
+                        flexDirection={"column"}
+                        justifyContent={"space-around"}
+                      >
+                        <Heading size={"md"}>Keyrus</Heading>
+                        <Text>DevOps Intern</Text>
+                        <Stat>
+                          <StatHelpText>October 2023 - april 2024</StatHelpText>
+                        </Stat>
+                      </Flex>
+                    </HStack>
+                    <Divider mb={4}/>
+                    <UnorderedList>
+                      <ListItem mb={4}>
+                        Springboard project aimed at understanding company
+                        operations by simulating a customer context: implemented
+                        CI/CD, Sonarqube, and created a RESTful API. This
+                        project involved visualizing popular locations on a map
+                        and implementing an intelligent search system.
+                      </ListItem>
+                      <ListItem mb={4}>
+                        Redesigned the DevOps Morning website, assisting in
+                        fostering the DevOps culture within the company.
+                      </ListItem>
+                      <ListItem mb={4}>
+                        Migrated several GitLab projects to GitHub along with
+                        their CI/CD pipelines.
+                      </ListItem>
+                      <ListItem mb={4}>
+                        <Heading size={"sm"}>FNMF :</Heading>
+                        Implemented CI/CD  for our client FNMF using Sonarqube and Maven.
+                        Also, provided support for DevOps and CFT topics in TMA.
+                      </ListItem>
+                      <ListItem mb={4}>
+                      <Heading size={"sm"}>AESIO :</Heading>
+                        Implemented CI for our client Aesio, including unit
+                        tests, code analysis, test coverage with Sonarqube using
+                        Maven, and image building.
+                      </ListItem>
+                      <ListItem mb={4}>
+                        Implemented CI/CD for an internal project in React, Go,
+                        and PostgreSQL, with deployment on self-hosted
+                        Kubernetes.
+                      </ListItem>
+                      <ListItem mb={4}>
+                        Deployed self-hosted, high-availability GitHub runners
+                        on our Kubernetes cluster.
+                      </ListItem>
+                      <ListItem mb={4}>
+                        Implemented best practices and reorganized Git and
+                        security directories at the BU data level.
+                      </ListItem>
+                    </UnorderedList>
+                  </GridItem>
+                </Grid>
               </TabPanel>
               <TabPanel>
                 <p>two!</p>
