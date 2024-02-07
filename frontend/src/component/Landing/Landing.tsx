@@ -46,8 +46,9 @@ export default function Landing() {
             spacingY={4}
           >
             {presTab.map((text) => (
-              <Heading id="hone">{text === " " ? <p>&nbsp;</p> : text}</Heading>
+              <Heading id="hone">{text === " " ? <p>&nbsp;</p>: text}</Heading>
             ))}
+        
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
             <VStack spacing={4}>

@@ -82,8 +82,9 @@ function App() {
         height={"100%"}
         zIndex={1}
         ref={otherRef}
+        
       ></Box>
-      <Box id="landing" ref={myRef}>
+      <Box id="landing" ref={myRef} >
         <Landing />
         <Content />
         <Footer />

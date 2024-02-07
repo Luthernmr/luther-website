@@ -1,5 +1,5 @@
 import { Flex, HStack, Link, Text } from "@chakra-ui/react";
-import { FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import SocialButton from "../SocialButton";
 
 function Header() {
@@ -40,6 +40,12 @@ function Header() {
           href={"https://www.linkedin.com/in/luthernmr/"}
         >
           <FaLinkedin />
+        </SocialButton>
+        <SocialButton
+          label={"Githun"}
+          href={"https://github.com/Luthernmr"}
+        >
+          <FaGithub />
         </SocialButton>
       </HStack>
     </Flex>

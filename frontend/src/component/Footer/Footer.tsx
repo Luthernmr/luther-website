@@ -1,5 +1,5 @@
-import { Center, Stack, Text } from "@chakra-ui/react";
-import { FaLinkedin } from "react-icons/fa";
+import { Center, HStack, Stack, Text } from "@chakra-ui/react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import SocialButton from "../SocialButton";
 
 export default function Footer() {
@@ -17,12 +17,20 @@ export default function Footer() {
         <Text>
           ©{new Date().getFullYear()} Luther Nemor - All rights reserved
         </Text>
-        <SocialButton
-          label={"Linkedin"}
-          href={"https://www.linkedin.com/in/luthernmr/"}
-        >
-          <FaLinkedin />
-        </SocialButton>
+        <HStack>
+          <SocialButton
+            label={"Linkedin"}
+            href={"https://www.linkedin.com/in/luthernmr/"}
+          >
+            <FaLinkedin />
+          </SocialButton>
+          <SocialButton
+            label={"Githun"}
+            href={"https://github.com/Luthernmr"}
+          >
+            <FaGithub />
+          </SocialButton>
+        </HStack>
       </Stack>
     </Center>
   );

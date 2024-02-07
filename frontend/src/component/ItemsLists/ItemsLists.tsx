@@ -1,0 +1,27 @@
+export const devopsSkills = [
+    "CI / CD",
+    "GitHub Actions / GitLab CI",
+    "Docker",
+    "Kubernetes",
+    "Terraform",
+    "AWS",
+    "Shell",
+    "Scripting",
+  ];
+  export const devSkills = [
+    "Javascript",
+    "Typescript",
+    "React",
+    "Node",
+    "Express",
+    "NestJS",
+    "C++",
+    "C",
+    "HTML",
+    "CSS",
+    "ChakraUI",
+    "PostgreSQL",
+    "MySQL",
+    "REST",
+    "WebSockets",
+  ];

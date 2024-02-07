@@ -4,7 +4,6 @@ import {
   Grid,
   GridItem,
   Heading,
-  Stack,
   Tab,
   TabList,
   TabPanel,
@@ -16,47 +15,17 @@ import {
   Flex,
   Divider,
   List,
-  ListItem,
-  HStack,
-  StatHelpText,
-  Stat,
-  UnorderedList,
-  Kbd,
 } from "@chakra-ui/react";
-import { FaLinkedin } from "react-icons/fa";
-import SocialButton from "../SocialButton";
 
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-const devopsSkills = [
-  "CI / CD",
-  "GitHub Actions / GitLab CI",
-  "Docker",
-  "Kubernetes",
-  "Terraform",
-  "AWS",
-  "Shell",
-  "Scripting",
-];
-const devSkills = [
-  "Javascript",
-  "Typescript",
-  "React",
-  "Node",
-  "Express",
-  "NestJS",
-  "C++",
-  "C",
-  "HTML",
-  "CSS",
-  "ChakraUI",
-  "PostgreSQL",
-  "MySQL",
-  "REST",
-  "WebSockets",
-];
+import  {devopsSkills , devSkills} from "../ItemsLists/ItemsLists"
+import  ExperiencesTab  from "../About/ExperiencesTab"
+import  EducationTab  from "../About/EducationTab"
+import  SkillsTab  from "../About/SkillsTab"
+import  AboutTab  from "../About/AboutTab"
 
 export default function Content() {
   useEffect(() => {
@@ -117,8 +86,7 @@ export default function Content() {
         w={"100%"}
         minH={"100vh"}
         justifyContent={"top"}
-        id="box-justify"
-      >
+        id="box-justify">
         <Box
           boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
           bg="whiteAlpha.100"
@@ -131,6 +99,21 @@ export default function Content() {
           minW={"10%"}
           id="preview"
           overflow={"auto"}
+          css={{
+            '&::-webkit-scrollbar': {
+              width: '5px',
+              maxHeight: '10px'
+            },
+            '&::-webkit-scrollbar-track': {
+              marginTop: '150px',
+              marginBottom: '150px',
+              width: '5px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              background: "white",
+              borderRadius: '24px',
+            },
+          }}
         >
           <Tabs
             variant="soft-rounded"
@@ -148,167 +131,16 @@ export default function Content() {
             </TabList>
             <TabPanels h={"100%"} padding={4}>
               <TabPanel>
-                <Flex
-                  flexDirection={"row"}
-                  justifyContent={"space-between"}
-                  maxW={"100%"}
-                  h={"100%"}
-                >
-                  <Box width={"50%"}>
-                    <Heading>Me</Heading>
-                    <Text></Text>
-                  </Box>
-                  <Image src="./src/assets/pdp0.png" boxSize={"50%"} />
-                </Flex>
+                <AboutTab />
               </TabPanel>
               <TabPanel>
-                <Heading>My skills</Heading>
-                <Grid marginTop={4} templateColumns="repeat(2, 1fr)" gap={2}>
-                  <GridItem colSpan={1}>
-                    <Heading size={"md"} mb={2}>
-                      DevOps
-                    </Heading>
-                    <Divider />
-                    <List mt={2}>
-                      {devopsSkills.map((skill) => (
-                        <Text size={"sm"} key={skill}>
-                          {skill}
-                        </Text>
-                      ))}
-                    </List>
-                  </GridItem>
-                  <GridItem colSpan={1}>
-                    <Heading size={"md"} mb={2}>
-                      Development{" "}
-                    </Heading>
-                    <Divider />
-                    <List mt={2}>
-                      {devSkills.map((skill) => (
-                        <Text size={"sm"} key={skill}>
-                          {skill}
-                        </Text>
-                      ))}
-                    </List>
-                  </GridItem>
-                </Grid>
+                <SkillsTab />
               </TabPanel>
               <TabPanel>
-                <Heading>My professional experience</Heading>
-                <Grid marginTop={4} templateColumns="repeat(2, 1fr)" gap={2}>
-                  <GridItem colSpan={1}>
-                    <HStack>
-                      <Image
-                        backgroundColor={"white"}
-                        src="./src/assets/keyrus.svg"
-                        boxSize={"60px"}
-                        p={2}
-                        mb={2}
-                      />
-                      <Flex
-                        flexDirection={"column"}
-                        justifyContent={"space-around"}
-                      >
-                        <Heading size={"md"}>Keyrus</Heading>
-                        <Text>DevOps Intern</Text>
-                        <Stat>
-                          <StatHelpText>October 2023 - april 2024</StatHelpText>
-                        </Stat>
-                      </Flex>
-                    </HStack>
-                    <Divider mb={4} />
-                    <UnorderedList>
-                      <ListItem mb={4}>
-                        Springboard project aimed at understanding company
-                        operations by simulating a customer context: implemented
-                        CI/CD, Sonarqube, and created a RESTful API. This
-                        project involved visualizing popular locations on a map
-                        and implementing an intelligent search system.
-                      </ListItem>
-                      <ListItem mb={4}>
-                        Redesigned the DevOps Morning website, assisting in
-                        fostering the DevOps culture within the company.
-                      </ListItem>
-                      <ListItem mb={4}>
-                        Migrated several GitLab projects to GitHub along with
-                        their CI/CD pipelines.
-                      </ListItem>
-                      <ListItem mb={4}>
-                        <Heading size={"sm"}>FNMF :</Heading>
-                        Implemented CI/CD for our client FNMF using Sonarqube
-                        and Maven. Also, provided support for DevOps and CFT
-                        topics in TMA.
-                      </ListItem>
-                      <ListItem mb={4}>
-                        <Heading size={"sm"}>AESIO :</Heading>
-                        Implemented CI for our client Aesio, including unit
-                        tests, code analysis, test coverage with Sonarqube using
-                        Maven, and image building.
-                      </ListItem>
-                      <ListItem mb={4}>
-                        Implemented CI/CD for an internal project in React, Go,
-                        and PostgreSQL, with deployment on self-hosted
-                        Kubernetes.
-                      </ListItem>
-                      <ListItem mb={4}>
-                        Deployed self-hosted, high-availability GitHub runners
-                        on our Kubernetes cluster. Writing documentation.
-                      </ListItem>
-                      <ListItem mb={4}>
-                        Implemented best practices and reorganized Git and
-                        security directories at the BU data level.
-                      </ListItem>
-                    </UnorderedList>
-                  </GridItem>
-                </Grid>
+                <ExperiencesTab />
               </TabPanel>
               <TabPanel>
-                <Heading>How i got here</Heading>
-                <Grid marginTop={4} templateColumns="repeat(2, 1fr)" gap={2}>
-                  <GridItem colSpan={1}>
-                    <HStack>
-                      <Image
-                        backgroundColor={"white"}
-                        src="./src/assets/42.svg"
-                        boxSize={"60px"}
-                        p={2}
-                        mb={2}
-                      />
-                      <Flex
-                        flexDirection={"column"}
-                        justifyContent={"space-around"}
-                      >
-                        <Heading size={"md"}>42</Heading>
-                        <Text>Programming school</Text>
-                        <Stat>
-                          <StatHelpText>November 2021 - Today</StatHelpText>
-                        </Stat>
-                      </Flex>
-                    </HStack>
-                    <HStack>
-                      <Box>
-                        <Divider mb={4} />
-                        <Heading size={"md"}>What is 42 ?</Heading>
-                        <Text>
-                          42, is a computer science teaching institution that
-                          stands out for its innovative teaching method. This
-                          method is primarily based on peer learning, where
-                          students learn from each other, without teachers or
-                          traditional courses. 42 students take part in
-                          practical challenges and collaborative projects to
-                          develop their programming and software development
-                          skills. This approach, focused on learner autonomy and
-                          creativity, makes 42 a unique institution in the IT
-                          education landscape.
-                        </Text>
-                      </Box>
-                    </HStack>
-                  </GridItem>
-                  <GridItem colSpan={1}>
-                    <Box mt={4}>
-                      <Heading size={"md"}>What is 42 ?</Heading>
-                    </Box>
-                  </GridItem>
-                </Grid>
+                <EducationTab />
               </TabPanel>
             </TabPanels>
           </Tabs>
