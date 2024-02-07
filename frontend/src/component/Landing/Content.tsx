@@ -56,7 +56,6 @@ const devSkills = [
   "MySQL",
   "REST",
   "WebSockets",
-  "SocketIO",
 ];
 
 export default function Content() {
@@ -216,7 +215,7 @@ export default function Content() {
                         </Stat>
                       </Flex>
                     </HStack>
-                    <Divider mb={4}/>
+                    <Divider mb={4} />
                     <UnorderedList>
                       <ListItem mb={4}>
                         Springboard project aimed at understanding company
@@ -235,11 +234,12 @@ export default function Content() {
                       </ListItem>
                       <ListItem mb={4}>
                         <Heading size={"sm"}>FNMF :</Heading>
-                        Implemented CI/CD  for our client FNMF using Sonarqube and Maven.
-                        Also, provided support for DevOps and CFT topics in TMA.
+                        Implemented CI/CD for our client FNMF using Sonarqube
+                        and Maven. Also, provided support for DevOps and CFT
+                        topics in TMA.
                       </ListItem>
                       <ListItem mb={4}>
-                      <Heading size={"sm"}>AESIO :</Heading>
+                        <Heading size={"sm"}>AESIO :</Heading>
                         Implemented CI for our client Aesio, including unit
                         tests, code analysis, test coverage with Sonarqube using
                         Maven, and image building.
@@ -251,7 +251,7 @@ export default function Content() {
                       </ListItem>
                       <ListItem mb={4}>
                         Deployed self-hosted, high-availability GitHub runners
-                        on our Kubernetes cluster.
+                        on our Kubernetes cluster. Writing documentation.
                       </ListItem>
                       <ListItem mb={4}>
                         Implemented best practices and reorganized Git and
@@ -262,7 +262,53 @@ export default function Content() {
                 </Grid>
               </TabPanel>
               <TabPanel>
-                <p>two!</p>
+                <Heading>How i got here</Heading>
+                <Grid marginTop={4} templateColumns="repeat(2, 1fr)" gap={2}>
+                  <GridItem colSpan={1}>
+                    <HStack>
+                      <Image
+                        backgroundColor={"white"}
+                        src="./src/assets/42.svg"
+                        boxSize={"60px"}
+                        p={2}
+                        mb={2}
+                      />
+                      <Flex
+                        flexDirection={"column"}
+                        justifyContent={"space-around"}
+                      >
+                        <Heading size={"md"}>42</Heading>
+                        <Text>Programming school</Text>
+                        <Stat>
+                          <StatHelpText>November 2021 - Today</StatHelpText>
+                        </Stat>
+                      </Flex>
+                    </HStack>
+                    <HStack>
+                      <Box>
+                        <Divider mb={4} />
+                        <Heading size={"md"}>What is 42 ?</Heading>
+                        <Text>
+                          42, is a computer science teaching institution that
+                          stands out for its innovative teaching method. This
+                          method is primarily based on peer learning, where
+                          students learn from each other, without teachers or
+                          traditional courses. 42 students take part in
+                          practical challenges and collaborative projects to
+                          develop their programming and software development
+                          skills. This approach, focused on learner autonomy and
+                          creativity, makes 42 a unique institution in the IT
+                          education landscape.
+                        </Text>
+                      </Box>
+                    </HStack>
+                  </GridItem>
+                  <GridItem colSpan={1}>
+                    <Box mt={4}>
+                      <Heading size={"md"}>What is 42 ?</Heading>
+                    </Box>
+                  </GridItem>
+                </Grid>
               </TabPanel>
             </TabPanels>
           </Tabs>
