@@ -1,32 +1,22 @@
 import {
   Box,
   Center,
-  Grid,
-  GridItem,
-  Heading,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
-  Text,
   VStack,
-  Image,
-  Flex,
-  Divider,
-  List,
 } from "@chakra-ui/react";
-
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-import  {devopsSkills , devSkills} from "../ItemsLists/ItemsLists"
 import  ExperiencesTab  from "../About/ExperiencesTab"
-import  EducationTab  from "../About/EducationTab"
 import  SkillsTab  from "../About/SkillsTab"
+import  EducationTab  from "../About/EducationTab"
 import  AboutTab  from "../About/AboutTab"
 
+gsap.registerPlugin(ScrollTrigger);
 export default function Content() {
   useEffect(() => {
     // Ciblez la boîte Chakra UI par son ID

@@ -1,8 +1,7 @@
 import { Heading, Grid, GridItem, Divider, List, Text } from "@chakra-ui/react";
-import React from "react";
 import { devopsSkills, devSkills } from "../ItemsLists/ItemsLists";
 
-export default function SkilsTab() {
+export default function SkillsTab() {
     return (
         <>
             <Heading>My skills</Heading>

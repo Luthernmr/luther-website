@@ -1,5 +1,4 @@
 import { Flex, Heading, Box, Text, Image, Divider, Highlight } from "@chakra-ui/react";
-import React from "react";
 
 export default function AboutTab() {
     return (

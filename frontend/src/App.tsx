@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import Content from "./component/Landing/Content";
 import Landing from "./component/Landing/Landing";
-import * as THREE from "three";
 import FOG from "vanta/dist/vanta.fog.min";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
@@ -30,8 +29,8 @@ function App() {
           lowlightColor: 0x48bdd7,
           baseColor: 0x884a4,
           blurFactor: 0.84,
-          speed: 0,
-          zoom: 2,
+          speed: 3,
+          zoom: 3,
         })
       );
     }
@@ -51,8 +50,8 @@ function App() {
           lowlightColor: 0x787878,
           baseColor: 0x111111,
           blurFactor: 0.84,
-          speed: 0,
-          zoom: 0.8,
+          speed: 2,
+          zoom: 2,
         })
       );
     }
@@ -67,9 +66,6 @@ function App() {
       opacity: 0,
       ease: "power4.inOut",
     });
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
   }, [vantaEffect]);
 
   return (

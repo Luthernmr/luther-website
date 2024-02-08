@@ -1,5 +1,4 @@
 import {
-  Box,
   Center,
   Flex,
   Heading,
@@ -28,9 +27,16 @@ export default function Landing() {
   console.log(presTab);
 
   return (
-    <Box height="100vh" align="center" id="services">
+    
+    <Flex height="100vh" flexDirection={"column"}  width={"100%"} id="services" >
+      <Center h={"20%"} minW={"80%"} 
+      position={"sticky"}
+      top={0}
+
+      >
       <Header />
-      <Center height={"80%"}>
+        </Center>
+      <Center height={"80%"} >
         <VStack
           justifyContent={"center"}
           alignItems={"center"}
@@ -44,10 +50,10 @@ export default function Landing() {
             spacing={0}
             justify={"center"}
             spacingY={4}
-          >
+            >
             {presTab.map((text) => (
               <Heading id="hone">{text === " " ? <p>&nbsp;</p>: text}</Heading>
-            ))}
+              ))}
         
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
@@ -75,6 +81,6 @@ export default function Landing() {
           </Center>
         </VStack>
       </Center>
-    </Box>
+    </Flex>
   );
 }

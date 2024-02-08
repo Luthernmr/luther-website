@@ -5,14 +5,12 @@ import SocialButton from "../SocialButton";
 function Header() {
   return (
     <Flex
-      h={"20%"}
+      h={"100%"}
       color={"white"}
       flexDirection={"row"}
-      maxW={"80%"}
+      minW={"80%"}
       justifyContent={"space-between"}
       alignItems={"center"}
-      position={"sticky"}
-      top={0}
       opacity={0.9}
     >
       <Text align={"center"} fontFamily={""}>

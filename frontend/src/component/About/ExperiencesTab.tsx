@@ -1,31 +1,17 @@
 import {
-    Box,
-    Center,
     Grid,
     GridItem,
     Heading,
-    Stack,
-    Tab,
-    TabList,
-    TabPanel,
-    TabPanels,
-    Tabs,
     Text,
-    VStack,
     Image,
     Flex,
     Divider,
-    List,
     ListItem,
     HStack,
     StatHelpText,
     Stat,
     UnorderedList,
-    Kbd,
 } from "@chakra-ui/react";
-import { FaLinkedin } from "react-icons/fa";
-import SocialButton from "../SocialButton";
-import React from 'react';
 export default function ExperiencesTab() {
     return (
         <>
