@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import  ExperiencesTab  from "../About/ExperiencesTab"
-import  SkillsTab  from "../About/SkillsTab"
+import  SkillsTab  from "../About/SkillTab"
 import  EducationTab  from "../About/EducationTab"
 import  AboutTab  from "../About/AboutTab"
 
