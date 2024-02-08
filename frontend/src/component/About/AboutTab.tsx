@@ -31,7 +31,7 @@ export default function AboutTab() {
                         </Highlight>
                     </Text>
                 </Box>
-                <Image src="./src/assets/pdp0.png" boxSize={"50%"} />
+                <Image src="/pdp0.png" boxSize={"50%"} />
             </Flex>
         </>
     )

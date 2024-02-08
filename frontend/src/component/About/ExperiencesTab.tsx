@@ -21,7 +21,7 @@ export default function ExperiencesTab() {
                     <HStack>
                         <Image
                             backgroundColor={"white"}
-                            src="./src/assets/keyrus.svg"
+                            src="/keyrus.svg"
                             boxSize={"60px"}
                             p={2}
                             mb={2}

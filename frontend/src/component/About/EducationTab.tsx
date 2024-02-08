@@ -10,7 +10,7 @@ export default function EducationTab() {
                     <HStack>
                         <Image
                             backgroundColor={"white"}
-                            src="./src/assets/42.svg"
+                            src="/42.svg"
                             boxSize={"60px"}
                             p={2}
                             mb={2}
