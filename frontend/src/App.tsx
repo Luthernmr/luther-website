@@ -72,7 +72,6 @@ function App() {
     <>
       <Box
         id="test"
-        bg={"red"}
         position={"absolute"}
         width={"100%"}
         height={"100%"}
