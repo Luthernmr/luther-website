@@ -13,9 +13,6 @@ import Header from "../Header/Header";
 import "rotating-text/dist/index.css";
 
 export default function Landing() {
-  const pres =
-    "Delve into my Cloud and DevOps engineering profile, showcasing achievements in digital transformation, automation, and continuous improvement.";
-  const presTab = pres.split("");
   const expertises = [
     "Cloud Engineering",
     "DevOps",
@@ -24,7 +21,6 @@ export default function Landing() {
     "CI / CD",
     "Web Development",
   ];
-  console.log(presTab);
 
   return (
     
@@ -51,17 +47,16 @@ export default function Landing() {
             justify={"center"}
             spacingY={4}
             >
-            {presTab.map((text) => (
-              <Heading id="hone">{text === " " ? <p>&nbsp;</p>: text}</Heading>
-              ))}
-        
+           
+              <Heading id="hone" textAlign={"center"} >Delve into my Cloud and DevOps engineering profile, showcasing achievements in digital transformation, automation, and continuous improvement.</Heading>
+              
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
             <VStack spacing={4}>
               <Text id="content">SERVICES / EXPERTISE</Text>
               <Wrap justify="center" width={"60%"}>
                 {expertises.map((expertise) => (
-                  <WrapItem>
+                  <WrapItem key={expertise}>
                     <Tag
                       id="content"
                       p={2}

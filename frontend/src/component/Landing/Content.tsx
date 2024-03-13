@@ -19,24 +19,7 @@ import  AboutTab  from "../About/AboutTab"
 gsap.registerPlugin(ScrollTrigger);
 export default function Content() {
   useEffect(() => {
-    // Ciblez la boîte Chakra UI par son ID
     const contents = document.querySelectorAll("#content");
-
-    const hones = document.querySelectorAll("#hone");
-
-    // Ajoutez l'animation GSAP
-
-    gsap.to("#preview", {
-      scrollTrigger: {
-        trigger: "#preview",
-        start: "top 80%",
-        end: "top 40%",
-        scrub: 2,
-      },
-      y: "100",
-      height: "80vh",
-      width: "80%",
-    });
 
     contents.forEach((content) => {
       gsap.to(content, {
@@ -50,31 +33,15 @@ export default function Content() {
       });
     });
 
-    hones.forEach((character, index) => {
-      gsap.to(character, {
-        scrollTrigger: {
-          trigger: character,
-          start: `top 45%-=${1.8 * index}`,
-          end: "bottom top",
-          scrub: 1,
-        },
-        ease: "power4.inOut",
-        y: `-100-=${5 * index}`,
-        rotateX: 90,
-        x: -20,
-        scale: 0,
-        opacity: 0,
-      });
-      index += 1;
-    });
   }, []);
 
   return (
     <Center id="about" h={"100%"} w={"100%"} flexDirection={"column"}>
       <VStack
+      h={"100%"}
+      minH={"100%"}
         overflowX={"auto"}
         w={"100%"}
-        minH={"100vh"}
         justifyContent={"top"}
         id="box-justify">
         <Box
@@ -84,9 +51,9 @@ export default function Content() {
           backdropFilter="auto"
           backdropBlur="15px"
           color={"white"}
-          h={"10vh"}
-          w={"10%"}
-          minW={"10%"}
+          w={"80%"}
+          h={"100%"}
+          minW={"80%"}
           id="preview"
           overflow={"auto"}
           css={{
@@ -112,6 +79,7 @@ export default function Content() {
             width={"100%"}
             size={"sm"}
             h={"100%"}
+            minH={"100%"}
           >
             <TabList padding={4}>
               <Tab color={"white"}>About me</Tab>
@@ -119,7 +87,7 @@ export default function Content() {
               <Tab color={"white"}>Experiences</Tab>
               <Tab color={"white"}>Education</Tab>
             </TabList>
-            <TabPanels h={"100%"} padding={4}>
+            <TabPanels h={"100%"} maxH={"80vh"} padding={4} overflowY={"auto"}>
               <TabPanel>
                 <AboutTab />
               </TabPanel>

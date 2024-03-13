@@ -20,7 +20,6 @@ export const theme = extendTheme({
   },
   fonts: {
     heading: `'Overpass Variable', sans-serif`,
-    body: `'JetBrains Mono', sans-serif, nunito`,
   },
   components: {
     Tag: {

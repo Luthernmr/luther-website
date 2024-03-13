@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Content from "./component/Landing/Content";
 import Landing from "./component/Landing/Landing";
 import FOG from "vanta/dist/vanta.fog.min";
@@ -22,8 +22,8 @@ function App() {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
+          minHeight: window.innerHeight,
+          minWidth: window.innerWidth,
           highlightColor: 0xd9ff,
           midtoneColor: 0x278fbb,
           lowlightColor: 0x48bdd7,
@@ -43,8 +43,8 @@ function App() {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
+          minHeight: window.innerHeight,
+          minWidth: window.innerWidth,
           highlightColor: 0x1b1b1b,
           midtoneColor: 0x373737,
           lowlightColor: 0x787878,
@@ -79,11 +79,11 @@ function App() {
         ref={otherRef}
         
       ></Box>
-      <Box id="landing" ref={myRef} >
+      <Flex backgroundColor={"green"} flexDirection={"column"} id="landing" ref={myRef} minH={"100%"} >
         <Landing />
         <Content />
         <Footer />
-      </Box>
+      </Flex>
     </>
   );
 }
