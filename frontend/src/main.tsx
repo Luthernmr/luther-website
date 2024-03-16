@@ -7,6 +7,7 @@ import '@fontsource/jetbrains-mono';
 import '@fontsource-variable/overpass';
 import '@fontsource-variable/nunito';
 import '@fontsource/syncopate';
+import AnimatedCursor from "react-animated-cursor"
 
 export const theme = extendTheme({
   colors: {
@@ -32,6 +33,19 @@ export const theme = extendTheme({
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+      <AnimatedCursor
+  innerSize={3}
+  outerSize={35}
+  innerScale={1}
+  outerScale={1.7}
+  outerAlpha={0}
+  outerStyle={{
+    border: '1px solid var(--cursor-color)'
+  }}
+  innerStyle={{
+    backgroundColor: 'var(--cursor-color)'
+  }}
+/>
     <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>

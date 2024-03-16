@@ -5,10 +5,11 @@ import FOG from "vanta/dist/vanta.fog.min";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
 import Footer from "./component/Footer/Footer";
+import AnimatedCursor from "react-animated-cursor"
 
-
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 function App() {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
@@ -22,8 +23,8 @@ function App() {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: window.innerHeight,
-          minWidth: window.innerWidth,
+          minHeight: 200.00,
+          minWidth: 200.00,
           highlightColor: 0xd9ff,
           midtoneColor: 0x278fbb,
           lowlightColor: 0x48bdd7,
@@ -43,8 +44,8 @@ function App() {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: window.innerHeight,
-          minWidth: window.innerWidth,
+          minHeight: 200.00,
+          minWidth: 200.00,
           highlightColor: 0x1b1b1b,
           midtoneColor: 0x373737,
           lowlightColor: 0x787878,
@@ -57,9 +58,10 @@ function App() {
     }
     gsap.to("#test", {
       scrollTrigger: {
+        markers: true,
         trigger: "#test",
         start: "40% 70%",
-        end: "80% 60%",
+        end: "70% 60%",
         scrub: 1,
       },
       duration: 1,
@@ -68,23 +70,28 @@ function App() {
     });
   }, [vantaEffect]);
 
+  
   return (
     <>
+      <div id="smooth-wrapper">
+        <div id="smooth-content" >
       <Box
         id="test"
         position={"absolute"}
-        maxWidth={"100%"}
-        height={"100%"}
+        minH={"100%"}
+        width={"100%"}
         zIndex={1}
         ref={otherRef}
-        border={"2px solid red"}
-        
-      ></Box>
-      <Flex flexDirection={"column"} id="landing" ref={myRef} h={"100%"}>
-        <Landing />
-        <Content />
-        <Footer />
-      </Flex>
+
+        >
+      </Box>
+          <Flex flexDirection={"column"} id="landingr" ref={myRef}>
+            <Landing />
+            <Content />
+            <Footer />
+          </Flex>
+        </div>
+      </div>
     </>
   );
 }

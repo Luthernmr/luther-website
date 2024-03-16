@@ -16,6 +16,8 @@ import "rotating-text/dist/index.css";
 export default function Landing() {
   const expertises = [
     "Cloud Engineering",
+    "Mircoservices",
+    "AWS",
     "DevOps",
     "Automation",
     "Continuous Improvement",
@@ -54,7 +56,7 @@ export default function Landing() {
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
             <VStack spacing={4}>
-              <Text id="content">SERVICES / EXPERTISE</Text>
+              <Text id="content">SERVICES / EXPERTISES</Text>
               <Wrap justify="center" width={"60%"} mb={4}>
                 {expertises.map((expertise) => (
                   <WrapItem key={expertise}>

@@ -30,7 +30,7 @@ function Header() {
         spacing={8}
 
       >
-        <Link href={"#services"}>ACCEUIL</Link>
+        <Link href={"#services"}>ACCUEUIL</Link>
         <Link href={"#about"}>À PROPOS</Link>
         <Link href={"https://www.linkedin.com/in/luthernmr/"} isExternal>CONTACT</Link>
         <SocialButton

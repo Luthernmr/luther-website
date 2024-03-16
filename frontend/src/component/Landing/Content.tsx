@@ -53,6 +53,7 @@ export default function Content() {
           color={"white"}
           w={"80%"}
           maxH={"80vh"}
+          maxW={"80%"}
           minH={"80vh"}
           id="preview"
           overflow={'auto'}
@@ -62,8 +63,8 @@ export default function Content() {
               maxHeight: '10px'
             },
             '&::-webkit-scrollbar-track': {
-              marginTop: '150px',
-              marginBottom: '150px',
+              marginTop: '20px',
+              marginBottom: '20px',
               width: '5px',
             },
             '&::-webkit-scrollbar-thumb': {

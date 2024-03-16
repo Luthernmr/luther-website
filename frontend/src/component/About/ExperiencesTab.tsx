@@ -43,7 +43,7 @@ export default function ExperiencesTab() {
                     <Divider mb={4} />
                     {professionalExperiences.map((pe) => (
                         <>
-                            <Text mb={4} size={"sm"} key={pe}>
+                            <Text fontSize={'xl'} mb={4} size={"sm"} key={pe}>
                                 {pe}
                             </Text>
                             <Divider opacity={"30%"} mb={4} mt={4} width={"10%"} />

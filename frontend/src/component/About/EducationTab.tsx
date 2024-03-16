@@ -1,4 +1,5 @@
 import { Heading, Grid, GridItem, HStack, Flex, Stat, StatHelpText, Divider, ListItem, Image, Text, Box, Link, List } from "@chakra-ui/react";
+import { projects } from "../ItemsLists/ItemsLists";
 
 export default function EducationTab() {
     return (
@@ -29,35 +30,37 @@ export default function EducationTab() {
                     <HStack alignItems={"flex-start"} spacing={5}>
                         <Box width={'50%'}>
                             <Divider mb={4} />
-                            <Heading size={"md"}>Qu'est-ce que 42 ?</Heading>
-                            <Text>
+                            <Heading size={"xl"} mb={4}>Qu'est-ce que 42 ?</Heading>
+                            <Text fontSize={'xl'} mb={4}>
                                 42 est une institution d'enseignement en informatique qui se
-                                distingue par sa méthode d'enseignement innovante. Cette
-                                méthode est principalement basée sur l'apprentissage par les pairs,
+                                distingue par sa méthode d'enseignement innovante.
+                            </Text>
+                            <Text fontSize={'xl'} mb={4}>
+                                Cette méthode est principalement basée sur l'apprentissage par les pairs,
                                 où les étudiants apprennent les uns des autres, sans enseignants
                                 ni cours traditionnels. Les étudiants de 42 participent à
                                 des défis pratiques et à des projets collaboratifs pour
                                 développer leurs compétences en programmation et en développement
-                                logiciel. Cette approche, axée sur l'autonomie et la créativité
+                                logiciel.
+                            </Text>
+                            <Text fontSize={'xl'} mb={4}>
+                                Cette approche, axée sur l'autonomie et la créativité
                                 de l'apprenant, fait de 42 une institution unique dans le
                                 paysage de l'éducation en informatique.
                             </Text>
 
                         </Box>
                         <Box width={'50%'}>
-                            <Heading size={"md"} mt={4}>Les projets réalisés :</Heading>
-                            <List spacing={2}>
-                                <ListItem>Recoder les fonctions de la bibliothèque C.</ListItem>
-                                <ListItem>Coder un algorithme de tri optimisé.</ListItem>
-                                <ListItem>Projet utilisant le multithreading/le fork.</ListItem>
-                                <ListItem>Réalisation d'un jeu simple en 2D.</ListItem>
-                                <ListItem>Recoder un shell en C avec certains builtins.</ListItem>
-                                <ListItem>Réalisation d'un jeu en 3D comme Wolfenstein en utilisant le raycasting.</ListItem>
-                                <ListItem>Réalisation d'une machine virtuelle déployant un site wordpress avec Docker.</ListItem>
-                                <ListItem>Coder un serveur IRC utilisant le protocole TCP, implémenter des canaux de discussion, des opérateurs d'utilisateurs et leurs privilèges.</ListItem>
-                                <ListItem>Recoder certains conteneurs C++ (map, vector, stack), coder un arbre binaire AVL.</ListItem>
-                                <ListItem>Création d'un site web en utilisant React pour le frontend, Nestjs pour le backend et postgresql/pgadmin pour la base de données. Utiliser une architecture API, MVC.</ListItem>
-                                <Text fontWeight={'light'}>Plus de détails sur ces projets sont disponibles sur mon github.</Text>
+                            <Heading size={"xl"} mb={4} mt={4}>Les projets réalisés :</Heading>
+                            <List spacing={2} fontSize={'xl'}>
+                                {projects.map((pe) => (
+                                    <>
+                                        <Text fontSize={'xl'} mb={2} size={"sm"} key={pe}>
+                                            {pe}
+                                        </Text>
+                                        <Divider opacity={"30%"}  width={"10%"} />
+                                    </>
+                                ))}
                             </List>
                         </Box>
                     </HStack>

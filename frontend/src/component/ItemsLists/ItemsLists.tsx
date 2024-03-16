@@ -38,3 +38,16 @@ export const professionalExperiences = [
   "Mise en place des meilleures pratiques et réorganisation des répertoires Git et de sécurité au niveau des données de l'unité opérationnelle.",
   "Containerisation de divers projets JAVA, React, Golang à l'aide de Docker"
 ]
+
+export const projects = [
+  "Recoder les fonctions de la bibliothèque C.",
+  "Coder un algorithme de tri optimisé.",
+  "Projet utilisant le multithreading/le fork.",
+  "Réalisation d'un jeu simple en 2D.",
+  "Recoder un shell en C avec certains builtins.",
+  "Réalisation d'un jeu en 3D comme Wolfenstein en utilisant le raycasting.",
+  "Réalisation d'une machine virtuelle déployant un site wordpress avec Docker.",
+  "Coder un serveur IRC utilisant le protocole TCP, implémenter des canaux de discussion, des opérateurs d'utilisateurs et leurs privilèges.",
+  "Recoder certains conteneurs C++ (map, vector, stack), coder un arbre binaire AVL.",
+  "Création d'un site web en utilisant React pour le frontend, Nestjs pour le backend et postgresql/pgadmin pour la base de données."
+];
