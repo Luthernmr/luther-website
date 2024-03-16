@@ -32,7 +32,7 @@ function Header() {
       >
         <Link href={"#services"}>ACCEUIL</Link>
         <Link href={"#about"}>À PROPOS</Link>
-        <Link href={"#contact"}>CONTACT</Link>
+        <Link href={"https://www.linkedin.com/in/luthernmr/"} isExternal>CONTACT</Link>
         <SocialButton
           label={"Linkedin"}
           href={"https://www.linkedin.com/in/luthernmr/"}
