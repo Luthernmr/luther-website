@@ -5,10 +5,9 @@ import FOG from "vanta/dist/vanta.fog.min";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
 import Footer from "./component/Footer/Footer";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
@@ -71,8 +70,7 @@ function App() {
   
   return (
     <>
-      <div id="smooth-wrapper">
-        <div id="smooth-content" >
+ 
       <Box
         id="test"
         position={"absolute"}
@@ -80,7 +78,6 @@ function App() {
         width={"100%"}
         zIndex={1}
         ref={otherRef}
-
         >
       </Box>
           <Flex flexDirection={"column"} id="landingr" ref={myRef}>
@@ -88,8 +85,6 @@ function App() {
             <Content />
             <Footer />
           </Flex>
-        </div>
-      </div>
     </>
   );
 }
