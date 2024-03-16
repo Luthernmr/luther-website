@@ -11,10 +11,10 @@ import {
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import  ExperiencesTab  from "../About/ExperiencesTab"
-import  SkillsTab  from "../About/SkillTab"
-import  EducationTab  from "../About/EducationTab"
-import  AboutTab  from "../About/AboutTab"
+import ExperiencesTab from "../About/ExperiencesTab"
+import SkillsTab from "../About/SkillTab"
+import EducationTab from "../About/EducationTab"
+import AboutTab from "../About/AboutTab"
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Content() {
@@ -36,10 +36,10 @@ export default function Content() {
   }, []);
 
   return (
-    <Center id="about" h={"100vh"} w={"100%"} flexDirection={"column"}>
+    <Center id="about" w={"100%"} flexDirection={"column"}>
       <VStack
-      h={"100%"}
-      minH={"100%"}
+        h={"100%"}
+        minH={"100%"}
         overflowX={"auto"}
         w={"100%"}
         justifyContent={"top"}
@@ -52,27 +52,11 @@ export default function Content() {
           backdropBlur="15px"
           color={"white"}
           w={"80%"}
-          minH={"80%"}
-          maxH={"80%"}
+          maxH={"80vh"}
+          minH={"80vh"}
           id="preview"
-        >
-          <Tabs
-            variant="soft-rounded"
-            colorScheme="brand"
-            color={"white"}
-            h={'100%'}
-            maxH={'100%'}
-            width={"100%"}
-            size={"sm"}
-            border={"2px solid red"}
-          >
-            <TabList>
-              <Tab color={"white"}>About me</Tab>
-              <Tab color={"white"}>Skills</Tab>
-              <Tab color={"white"}>Experiences</Tab>
-              <Tab color={"white"}>Education</Tab>
-            </TabList>
-            <TabPanels   maxH={"100%"} overflowY={"auto"}  border={"2px solid green"} css={{
+          overflow={'auto'}
+          css={{
             '&::-webkit-scrollbar': {
               width: '5px',
               maxHeight: '10px'
@@ -86,7 +70,24 @@ export default function Content() {
               background: "white",
               borderRadius: '24px',
             },
-          }}>
+          }}
+        >
+          <Tabs
+            variant="soft-rounded"
+            colorScheme="brand"
+            color={"white"}
+            minH={"100%"}
+            maxH={'100%'}
+            width={"100%"}
+            size={"sm"}
+          >
+            <TabList maxH={'20%'} p={4} >
+              <Tab color={"white"}>À propos de moi</Tab>
+              <Tab color={"white"}>Compétences</Tab>
+              <Tab color={"white"}>Expériences</Tab>
+              <Tab color={"white"}>Éducation</Tab>
+            </TabList>
+            <TabPanels>
               <TabPanel >
                 <AboutTab />
               </TabPanel>

@@ -9,6 +9,7 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import Header from "../Header/Header";
+import DownloadButton from './DownloadButton'
 
 import "rotating-text/dist/index.css";
 
@@ -48,13 +49,13 @@ export default function Landing() {
             spacingY={4}
             >
            
-              <Heading id="hone" textAlign={"center"} >Delve into my Cloud and DevOps engineering profile, showcasing achievements in digital transformation, automation, and continuous improvement.</Heading>
+              <Heading id="hone" textAlign={"center"} >Plongez dans mon univers professionnel en explorant mon CV détaillé, où chaque expérience et compétence reflète mon parcours et mes ambitions. </Heading>
               
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
             <VStack spacing={4}>
               <Text id="content">SERVICES / EXPERTISE</Text>
-              <Wrap justify="center" width={"60%"}>
+              <Wrap justify="center" width={"60%"} mb={4}>
                 {expertises.map((expertise) => (
                   <WrapItem key={expertise}>
                     <Tag
@@ -66,12 +67,13 @@ export default function Landing() {
                       variant="outline"
                       colorScheme="whity"
                       color={"white"}
-                    >
+                      >
                       <Text>{expertise}</Text>
                     </Tag>
                   </WrapItem>
                 ))}
               </Wrap>
+                <DownloadButton/>
             </VStack>
           </Center>
         </VStack>

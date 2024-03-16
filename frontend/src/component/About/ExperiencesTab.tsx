@@ -25,7 +25,7 @@ export default function ExperiencesTab() {
                         <Image
                             backgroundColor={"white"}
                             src="/keyrus.svg"
-                            boxSize={"60px"}
+                            boxSize={"70px"}
                             p={2}
                             mb={2}
                         />
@@ -46,7 +46,7 @@ export default function ExperiencesTab() {
                             <Text mb={4} size={"sm"} key={pe}>
                                 {pe}
                             </Text>
-                            <Divider mb={4} mt={4} width={"20%"} />
+                            <Divider opacity={"30%"} mb={4} mt={4} width={"10%"} />
                         </>
                     ))}
                 </GridItem>

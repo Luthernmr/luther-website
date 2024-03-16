@@ -1,17 +1,17 @@
-import { Heading, Grid, GridItem, HStack, Flex, Stat, StatHelpText, Divider, UnorderedList, ListItem, Image, Text, Box } from "@chakra-ui/react";
+import { Heading, Grid, GridItem, HStack, Flex, Stat, StatHelpText, Divider, UnorderedList, ListItem, Image, Text, Box, Link, List } from "@chakra-ui/react";
 
 export default function EducationTab() {
     return (
 
         <>
-            <Heading>Comment j'en suis arrivé là</Heading>
+            <Heading>Formations</Heading>
             <Grid marginTop={4} templateColumns="repeat(1, 1fr)" gap={2}>
                 <GridItem colSpan={1}>
-                    <HStack>
+                    <HStack as={Link} href='https://42lyon.fr/' isExternal>
                         <Image
                             backgroundColor={"white"}
                             src="/42.svg"
-                            boxSize={"60px"}
+                            boxSize={"70px"}
                             p={2}
                             mb={2}
                         />
@@ -45,8 +45,8 @@ export default function EducationTab() {
 
                         </Box>
                         <Box width={'50%'}>
-                            <Heading size={"md"} mt={4}>Les Projets Scolaires :</Heading>
-                            <UnorderedList spacing={2}>
+                            <Heading size={"md"} mt={4}>Les projets réalisés :</Heading>
+                            <List spacing={2}>
                                 <ListItem>Recoder les fonctions de la bibliothèque C.</ListItem>
                                 <ListItem>Coder un algorithme de tri optimisé.</ListItem>
                                 <ListItem>Projet utilisant le multithreading/le fork.</ListItem>
@@ -55,10 +55,10 @@ export default function EducationTab() {
                                 <ListItem>Réalisation d'un jeu en 3D comme Wolfenstein en utilisant le raycasting.</ListItem>
                                 <ListItem>Réalisation d'une machine virtuelle déployant un site wordpress avec Docker.</ListItem>
                                 <ListItem>Coder un serveur IRC utilisant le protocole TCP, implémenter des canaux de discussion, des opérateurs d'utilisateurs et leurs privilèges.</ListItem>
-                                <ListItem>Recoder certains conteneurs c++ (map, vector, stack), coder un arbre binaire AVL.</ListItem>
+                                <ListItem>Recoder certains conteneurs C++ (map, vector, stack), coder un arbre binaire AVL.</ListItem>
                                 <ListItem>Création d'un site web en utilisant React pour le frontend, Nestjs pour le backend et postgresql/pgadmin pour la base de données. Utiliser une architecture API, MVC.</ListItem>
                                 <Text fontWeight={'light'}>Plus de détails sur ces projets sont disponibles sur mon github.</Text>
-                            </UnorderedList>
+                            </List>
                         </Box>
                     </HStack>
                 </GridItem>

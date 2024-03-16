@@ -25,13 +25,13 @@ function Header() {
         padding={2}
         paddingLeft={10}
         paddingRight={10}
-        border={"1px solid"}  
+        border={"1px solid"}
         borderColor={"whiteAlpha.400"}
         spacing={8}
 
       >
-        <Link  href={"#services"}>SERVICES</Link>
-        <Link href={"#about"}>ABOUT</Link>
+        <Link href={"#services"}>ACCEUIL</Link>
+        <Link href={"#about"}>À PROPOS</Link>
         <Link href={"#contact"}>CONTACT</Link>
         <SocialButton
           label={"Linkedin"}

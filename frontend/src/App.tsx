@@ -59,7 +59,7 @@ function App() {
       scrollTrigger: {
         trigger: "#test",
         start: "40% 70%",
-        end: "50% 60%",
+        end: "80% 60%",
         scrub: 1,
       },
       duration: 1,
@@ -73,13 +73,14 @@ function App() {
       <Box
         id="test"
         position={"absolute"}
-        minWidth={"100%"}
+        maxWidth={"100%"}
         height={"100%"}
         zIndex={1}
         ref={otherRef}
+        border={"2px solid red"}
         
       ></Box>
-      <Flex flexDirection={"column"} id="landing" ref={myRef} minH={"100vh"} h={"100%"} >
+      <Flex flexDirection={"column"} id="landing" ref={myRef} h={"100%"}>
         <Landing />
         <Content />
         <Footer />
