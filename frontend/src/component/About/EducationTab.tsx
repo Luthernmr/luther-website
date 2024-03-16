@@ -1,4 +1,4 @@
-import { Heading, Grid, GridItem, HStack, Flex, Stat, StatHelpText, Divider, UnorderedList, ListItem, Image, Text, Box, Link, List } from "@chakra-ui/react";
+import { Heading, Grid, GridItem, HStack, Flex, Stat, StatHelpText, Divider, ListItem, Image, Text, Box, Link, List } from "@chakra-ui/react";
 
 export default function EducationTab() {
     return (

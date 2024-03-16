@@ -1,7 +1,5 @@
 import { Button } from "@chakra-ui/react";
 
-import React from "react";
-
 export default function DownloadButton() {
     const onButtonClick = () => {
         const pdfUrl = "/CV_Cloud-Devops_Luther_NEMOR_Alternance.pdf";
