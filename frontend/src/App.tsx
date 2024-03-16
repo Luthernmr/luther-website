@@ -7,7 +7,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
 import Footer from "./component/Footer/Footer";
-import AnimatedCursor from "react-animated-cursor"
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 function App() {
@@ -58,7 +57,6 @@ function App() {
     }
     gsap.to("#test", {
       scrollTrigger: {
-        markers: true,
         trigger: "#test",
         start: "40% 70%",
         end: "70% 60%",

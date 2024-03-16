@@ -11,8 +11,8 @@ export default function DownloadButton() {
         document.body.removeChild(link);
     };
     return (
-                <Button  rounded={'full'} onClick={onButtonClick}>
-                    Téléchargez mon CV
-                </Button>
+        <Button rounded={'full'} onClick={onButtonClick}>
+            Téléchargez mon CV
+        </Button>
     );
 };
