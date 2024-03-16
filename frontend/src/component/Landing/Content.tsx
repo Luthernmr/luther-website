@@ -36,7 +36,7 @@ export default function Content() {
   }, []);
 
   return (
-    <Center id="about" h={"100%"} w={"100%"} flexDirection={"column"}>
+    <Center id="about" h={"100vh"} w={"100%"} flexDirection={"column"}>
       <VStack
       h={"100%"}
       minH={"100%"}
@@ -52,11 +52,27 @@ export default function Content() {
           backdropBlur="15px"
           color={"white"}
           w={"80%"}
-          h={"100%"}
-          minW={"80%"}
+          minH={"80%"}
+          maxH={"80%"}
           id="preview"
-          overflow={"auto"}
-          css={{
+        >
+          <Tabs
+            variant="soft-rounded"
+            colorScheme="brand"
+            color={"white"}
+            h={'100%'}
+            maxH={'100%'}
+            width={"100%"}
+            size={"sm"}
+            border={"2px solid red"}
+          >
+            <TabList>
+              <Tab color={"white"}>About me</Tab>
+              <Tab color={"white"}>Skills</Tab>
+              <Tab color={"white"}>Experiences</Tab>
+              <Tab color={"white"}>Education</Tab>
+            </TabList>
+            <TabPanels   maxH={"100%"} overflowY={"auto"}  border={"2px solid green"} css={{
             '&::-webkit-scrollbar': {
               width: '5px',
               maxHeight: '10px'
@@ -70,25 +86,8 @@ export default function Content() {
               background: "white",
               borderRadius: '24px',
             },
-          }}
-        >
-          <Tabs
-            variant="soft-rounded"
-            colorScheme="brand"
-            color={"white"}
-            width={"100%"}
-            size={"sm"}
-            h={"100%"}
-            minH={"100%"}
-          >
-            <TabList padding={4}>
-              <Tab color={"white"}>About me</Tab>
-              <Tab color={"white"}>Skills</Tab>
-              <Tab color={"white"}>Experiences</Tab>
-              <Tab color={"white"}>Education</Tab>
-            </TabList>
-            <TabPanels h={"100%"} maxH={"80vh"} padding={4} overflowY={"auto"}>
-              <TabPanel>
+          }}>
+              <TabPanel >
                 <AboutTab />
               </TabPanel>
               <TabPanel>

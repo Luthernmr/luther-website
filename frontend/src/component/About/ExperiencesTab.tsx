@@ -9,13 +9,15 @@ import {
     HStack,
     StatHelpText,
     Stat,
+    Box,
 } from "@chakra-ui/react";
 
 import { professionalExperiences } from "../ItemsLists/ItemsLists"
 
 export default function ExperiencesTab() {
     return (
-        <>
+        <Box>
+
             <Heading>Mon expérience professionnelle</Heading>
             <Grid marginTop={4} templateColumns="repeat(2, 1fr)" gap={2}>
                 <GridItem colSpan={1}>
@@ -49,6 +51,6 @@ export default function ExperiencesTab() {
                     ))}
                 </GridItem>
             </Grid>
-        </>
+        </Box>
     )
 }

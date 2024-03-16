@@ -73,13 +73,13 @@ function App() {
       <Box
         id="test"
         position={"absolute"}
-        width={"100%"}
+        minWidth={"100%"}
         height={"100%"}
         zIndex={1}
         ref={otherRef}
         
       ></Box>
-      <Flex backgroundColor={"green"} flexDirection={"column"} id="landing" ref={myRef} minH={"100%"} >
+      <Flex flexDirection={"column"} id="landing" ref={myRef} minH={"100vh"} h={"100%"} >
         <Landing />
         <Content />
         <Footer />
