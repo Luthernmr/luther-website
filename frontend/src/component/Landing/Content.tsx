@@ -51,9 +51,9 @@ export default function Content() {
           backdropFilter="auto"
           backdropBlur="15px"
           color={"white"}
-          w={"80%"}
+          w={"95%"}
           maxH={"80vh"}
-          maxW={"80%"}
+          maxW={{ base:"95%", md:"80%"}}
           minH={"80vh"}
           id="preview"
           overflow={'auto'}
@@ -83,8 +83,9 @@ export default function Content() {
             size={"sm"}
           >
             <TabList maxH={'20%'} p={4} >
-              <Tab color={"white"}>À propos de moi</Tab>
-              <Tab color={"white"}>Compétences</Tab>
+              <Tab color={"white"}>Moi</Tab>
+              <Tab display={{base:"none" , md:"block"}} color={"white"}>Compétences</Tab>
+              <Tab display={{base:"bock", md:"none"}} color={"white"}>Skills</Tab>
               <Tab color={"white"}>Expériences</Tab>
               <Tab color={"white"}>Éducation</Tab>
             </TabList>

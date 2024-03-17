@@ -1,4 +1,6 @@
 import { Button } from "@chakra-ui/react";
+import { DownloadIcon } from '@chakra-ui/icons'
+
 
 export default function DownloadButton() {
     const onButtonClick = () => {
@@ -11,7 +13,7 @@ export default function DownloadButton() {
         document.body.removeChild(link);
     };
     return (
-        <Button rounded={'full'} onClick={onButtonClick}>
+        <Button rounded={'full'} onClick={onButtonClick} rightIcon={<DownloadIcon />}>
             Téléchargez mon CV
         </Button>
     );

@@ -8,11 +8,11 @@ export default function AboutTab() {
                 maxW={"100%"}
                 h={"100%"}
             >
-                <Box width={"50%"}>
+                <Box width={{base:"100%", md:"50%"}}>
                     <Heading>DevOps</Heading>
                     <Divider mb={4} />
 
-                    <Text align={'justify'} fontSize={'xl'}>
+                    <Text align={'justify'} fontSize={{base:'md', sm: 'xl'}}>
                         <Text mb={2}>
                             <Highlight
                                 query={['Luther']}
@@ -38,7 +38,7 @@ export default function AboutTab() {
 
                     </Text>
                 </Box>
-                <Image src="/pdp.png" boxSize={"50%"} />
+                <Image src="/pdp.png" boxSize={"50%"} display={{base:"none", xl:"block"}}/>
             </Flex>
         </>
     )

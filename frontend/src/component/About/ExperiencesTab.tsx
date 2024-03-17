@@ -19,7 +19,7 @@ export default function ExperiencesTab() {
         <Box>
 
             <Heading>Mon expérience professionnelle</Heading>
-            <Grid marginTop={4} templateColumns="repeat(2, 1fr)" gap={2}>
+            <Grid marginTop={4} templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)"}} gap={2}>
                 <GridItem colSpan={1}>
                     <HStack>
                         <Image
@@ -43,7 +43,7 @@ export default function ExperiencesTab() {
                     <Divider mb={4} />
                     {professionalExperiences.map((pe) => (
                         <>
-                            <Text fontSize={'xl'} mb={4} size={"sm"} key={pe}>
+                            <Text  fontSize={{base:'md', sm: 'xl'}} mb={4} size={"sm"} key={pe}>
                                 {pe}
                             </Text>
                             <Divider opacity={"30%"} mb={4} mt={4} width={"10%"} />

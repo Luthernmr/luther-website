@@ -27,15 +27,15 @@ export default function EducationTab() {
                             </Stat>
                         </Flex>
                     </HStack>
-                    <HStack alignItems={"flex-start"} spacing={5}>
-                        <Box width={'50%'}>
+                    <HStack alignItems={"flex-start"} flexDirection={{base:"column", md:"row"}} spacing={5}>
+                        <Box width={{base:"100%" ,md:"50%"}}>
                             <Divider mb={4} />
                             <Heading size={"xl"} mb={4}>Qu'est-ce que 42 ?</Heading>
-                            <Text fontSize={'xl'} mb={4}>
+                            <Text  fontSize={{base:'md', md: 'xl'}} mb={4}>
                                 42 est une institution d'enseignement en informatique qui se
                                 distingue par sa méthode d'enseignement innovante.
                             </Text>
-                            <Text fontSize={'xl'} mb={4}>
+                            <Text fontSize={{base:'md', md: 'xl'}} mb={4}>
                                 Cette méthode est principalement basée sur l'apprentissage par les pairs,
                                 où les étudiants apprennent les uns des autres, sans enseignants
                                 ni cours traditionnels. Les étudiants de 42 participent à
@@ -43,19 +43,19 @@ export default function EducationTab() {
                                 développer leurs compétences en programmation et en développement
                                 logiciel.
                             </Text>
-                            <Text fontSize={'xl'} mb={4}>
+                            <Text fontSize={{base:'md', md: 'xl'}} mb={4}>
                                 Cette approche, axée sur l'autonomie et la créativité
                                 de l'apprenant, fait de 42 une institution unique dans le
                                 paysage de l'éducation en informatique.
                             </Text>
 
                         </Box>
-                        <Box width={'50%'}>
+                        <Box width={{base:"100%" ,md:"50%"}}>
                             <Heading size={"xl"} mb={4} mt={4}>Les projets réalisés :</Heading>
-                            <List spacing={2} fontSize={'xl'}>
+                            <List spacing={2} fontSize={{base:'md', md: 'xl'}}>
                                 {projects.map((pe) => (
                                     <>
-                                        <Text fontSize={'xl'} mb={2} size={"sm"} key={pe}>
+                                        <Text fontSize={{base:'md', md: 'xl'}} mb={2} size={"sm"} key={pe}>
                                             {pe}
                                         </Text>
                                         <Divider opacity={"30%"}  width={"10%"} />

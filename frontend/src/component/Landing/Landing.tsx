@@ -28,8 +28,8 @@ export default function Landing() {
   return (
     
     <Flex height="100vh" flexDirection={"column"}  width={"100%"} id="services" >
-      <Center h={"20%"} minW={"80%"} 
-      position={"sticky"}
+      <Center h={"20%"}      minW={{ base:"95%", md:"80%"}}
+      position={{base:"relative", md: "sticky"}}
       top={0}
 
       >
@@ -45,25 +45,25 @@ export default function Landing() {
         >
           <Wrap
             flexDirection={"row"}
-            maxW={"70%"}
+            maxW={{ base:"90%", md:"80%"}}
             spacing={0}
             justify={"center"}
             spacingY={4}
             >
            
-              <Heading id="hone" textAlign={"center"} >Plongez dans mon univers professionnel en explorant mon CV détaillé, où chaque expérience et compétence reflète mon parcours et mes ambitions. </Heading>
+              <Heading id="hone" textAlign={"center"} size={{base:'md', md:"xl" }} >Plongez dans mon univers professionnel en explorant mon CV détaillé, où chaque expérience et compétence reflète mon parcours et mes ambitions. </Heading>
               
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
             <VStack spacing={4}>
               <Text id="content">SERVICES / EXPERTISES</Text>
-              <Wrap justify="center" width={"60%"} mb={4}>
+              <Wrap justify="center"       maxW={{ base:"90%",md:"60%"}}  mb={4}>
                 {expertises.map((expertise) => (
                   <WrapItem key={expertise}>
                     <Tag
                       id="content"
                       p={2}
-                      size={"xl"}
+                      size={{base: "sm", xl:"xl"}}
                       key={expertise}
                       borderRadius="full"
                       variant="outline"

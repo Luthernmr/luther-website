@@ -8,12 +8,12 @@ function Header() {
       h={"100%"}
       color={"white"}
       flexDirection={"row"}
-      minW={"80%"}
+      minW={{ base:"90%", md:"80%"}}
       justifyContent={"space-between"}
       alignItems={"center"}
       opacity={0.9}
     >
-      <Text align={"center"} fontFamily={""}>
+      <Text align={"center"} fontSize={"2xl"} fontWeight={"light"}>
         LUTHER NEMOR
       </Text>
       <HStack
@@ -28,7 +28,7 @@ function Header() {
         border={"1px solid"}
         borderColor={"whiteAlpha.400"}
         spacing={8}
-
+        display={{ base: "none", sm: 'flex' }}
       >
         <Link href={"#services"}>ACCUEUIL</Link>
         <Link href={"#about"}>À PROPOS</Link>
