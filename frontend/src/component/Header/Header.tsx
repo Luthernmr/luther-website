@@ -23,16 +23,16 @@ function Header() {
         backdropFilter="auto"
         backdropBlur="1px"
         padding={2}
-        paddingLeft={10}
-        paddingRight={10}
+        paddingLeft={{base:"3", md:"10"}}
+        paddingRight={{base:"3", md:"10"}}
         border={"1px solid"}
         borderColor={"whiteAlpha.400"}
-        spacing={8}
-        display={{ base: "none", sm: 'flex' }}
+        spacing={{base:"3", md:"8"}}
+        
       >
-        <Link href={"#services"}>ACCUEUIL</Link>
-        <Link href={"#about"}>À PROPOS</Link>
-        <Link href={"https://www.linkedin.com/in/luthernmr/"} isExternal>CONTACT</Link>
+        <Link display={{ base: "none", md: 'flex' }} href={"#services"}>ACCUEUIL</Link>
+        <Link display={{ base: "none", md: 'flex' }} href={"#about"}>À PROPOS</Link>
+        <Link display={{ base: "none", md: 'flex' }} href={"https://www.linkedin.com/in/luthernmr/"} isExternal>CONTACT</Link>
         <SocialButton
           label={"Linkedin"}
           href={"https://www.linkedin.com/in/luthernmr/"}
