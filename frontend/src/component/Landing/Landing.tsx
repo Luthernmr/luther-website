@@ -41,7 +41,7 @@ export default function Landing() {
           alignItems={"center"}
           h={"100%"}
           color={"white"}
-          spacing={10}
+          spacing={1}
         >
           <Wrap
             flexDirection={"row"}

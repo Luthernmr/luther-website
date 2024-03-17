@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <Center id="about" h={"100%"} w={"100%"} flexDirection={"column"}>
       <Stack
-        mt={10}
+        mt={{base:"5", sm:"2"}}
         direction={"row"}
         justifyContent={"space-between"}
         spacing={6}
