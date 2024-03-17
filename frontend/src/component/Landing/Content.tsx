@@ -84,8 +84,7 @@ export default function Content() {
           >
             <TabList maxH={'20%'} p={4} >
               <Tab color={"white"}>Moi</Tab>
-              <Tab display={{base:"none" , md:"block"}} color={"white"}>Compétences</Tab>
-              <Tab display={{base:"bock", md:"none"}} color={"white"}>Skills</Tab>
+              <Tab color={"white"}>Skills</Tab>
               <Tab color={"white"}>Expériences</Tab>
               <Tab color={"white"}>Éducation</Tab>
             </TabList>
