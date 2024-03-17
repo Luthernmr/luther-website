@@ -45,7 +45,7 @@ export default function Landing() {
         >
           <Wrap
             flexDirection={"row"}
-            maxW={{ base:"90%", md:"80%"}}
+            maxW={{ base:"95%", md:"80%"}}
             spacing={0}
             justify={"center"}
             spacingY={4}

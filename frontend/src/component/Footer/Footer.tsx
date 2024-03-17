@@ -6,13 +6,13 @@ export default function Footer() {
   return (
     <Center id="about" h={"100%"} w={"100%"} flexDirection={"column"}>
       <Stack
-        mt={2}
+        mt={10}
         direction={"row"}
         justifyContent={"space-between"}
         spacing={6}
         alignItems={"center"}
         color={"white"}
-        w={"80%"}
+        w={{ base:"90%", md:"80%"}}
       >
         <Text>
           ©{new Date().getFullYear()} Luther Nemor - All rights reserved
