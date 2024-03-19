@@ -16,7 +16,7 @@ export const theme = extendTheme({
       200: '#f1f1f1'
     },
     whity: {
-      500: "#c0c0c0", // Remplacez 'yourTagColor' par la couleur que vous souhaitez pour le tag
+      500: "#e2e8f0", // Remplacez 'yourTagColor' par la couleur que vous souhaitez pour le tag
     },
   },
   fonts: {

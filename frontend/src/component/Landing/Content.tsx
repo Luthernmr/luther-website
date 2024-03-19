@@ -50,6 +50,8 @@ export default function Content() {
           borderRadius={"20px"}
           backdropFilter="auto"
           backdropBlur="15px"
+          border={"1px solid"}
+          borderColor={" whiteAlpha.100"}
           color={"white"}
           w={"95%"}
           maxH={"80vh"}
