@@ -28,7 +28,7 @@ export const devSkills = [
 
 
 export const professionalExperiences = [
-  "PProjet Tremplin visant à comprendre le fonctionnement de l'entreprise en simulant un contexte client : mise en place de CI/CD, Sonarqube, et création d'une API RESTful, Conteneurisation",
+  "Projet Tremplin visant à comprendre le fonctionnement de l'entreprise en simulant un contexte client : mise en place de CI/CD, Sonarqube, et création d'une API RESTful, Conteneurisation",
   "Refonte du site web éducatif DevOps permettant de promouvoir la culture DevOps au sein de l'entreprise.",
   "Migration de plusieurs projets GitLab vers GitHub avec leurs pipelines CI/CD.",
   "Mise en place de CI/CD pour notre client FNMF en utilisant Sonarqube et Maven. Prise en charge de ticket support sur les sujets DevOps et Scripting Bash.",
