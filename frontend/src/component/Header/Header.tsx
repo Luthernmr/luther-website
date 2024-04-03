@@ -26,7 +26,7 @@ function Header() {
         paddingLeft={{base:"3", md:"10"}}
         paddingRight={{base:"3", md:"10"}}
         border={"1px solid"}
-        borderColor={"whiteAlpha.400"}
+        borderColor={"whiteAlpha.100"}
         spacing={{base:"3", md:"8"}}
         
       >
