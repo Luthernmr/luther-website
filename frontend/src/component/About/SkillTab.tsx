@@ -1,5 +1,5 @@
 import { Heading, Grid, GridItem, Divider, List, Text } from "@chakra-ui/react";
-import { devopsSkills, devSkills } from "../ItemsLists/ItemsLists";
+import { devopsSkills, devSkills } from "../../data/ItemsLists";
 
 export default function SkillsTab() {
     return (

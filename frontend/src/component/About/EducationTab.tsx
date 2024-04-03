@@ -1,5 +1,5 @@
 import { Heading, Grid, GridItem, HStack, Flex, Stat, StatHelpText, Divider, Image, Text, Box, Link, List } from "@chakra-ui/react";
-import { projects } from "../ItemsLists/ItemsLists";
+import { projects } from '../../data/ItemsLists';
 
 export default function EducationTab() {
     return (
@@ -53,13 +53,13 @@ export default function EducationTab() {
                         <Box width={{base:"100%" ,md:"50%"}}>
                             <Heading size={"xl"} mb={4} mt={4}>Les projets réalisés :</Heading>
                             <List spacing={2} fontSize={{base:'md', md: 'xl'}}>
-                                {projects.map((pe) => (
-                                    <>
+                                {projects.map((pe, index) => (
+                                    <Box key={index}> 
                                         <Text fontSize={{base:'md', md: 'xl'}} mb={2} size={"sm"} key={pe}>
                                             {pe}
                                         </Text>
                                         <Divider opacity={"30%"}  width={"10%"} />
-                                    </>
+                                    </Box>
                                 ))}
                             </List>
                         </Box>

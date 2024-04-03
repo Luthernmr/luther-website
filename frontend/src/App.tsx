@@ -80,7 +80,7 @@ function App() {
         ref={otherRef}
         >
       </Box>
-          <Flex flexDirection={"column"} id="landingr" ref={myRef}>
+          <Flex flexDirection={"column"} id="landing" ref={myRef}>
             <Landing />
             <Content />
             <Footer />

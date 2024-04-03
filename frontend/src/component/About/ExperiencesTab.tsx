@@ -12,14 +12,14 @@ import {
     Box,
 } from "@chakra-ui/react";
 
-import { professionalExperiences } from "../ItemsLists/ItemsLists"
+import { professionalExperiences } from "../../data/ItemsLists"
 
 export default function ExperiencesTab() {
     return (
         <Box>
 
             <Heading>Mon expérience professionnelle</Heading>
-            <Grid marginTop={4} templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)"}} gap={2}>
+            <Grid marginTop={4} templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }} gap={2}>
                 <GridItem colSpan={1}>
                     <HStack>
                         <Image
@@ -41,13 +41,13 @@ export default function ExperiencesTab() {
                         </Flex>
                     </HStack>
                     <Divider mb={4} />
-                    {professionalExperiences.map((pe) => (
-                        <>
-                            <Text  fontSize={{base:'md', sm: 'xl'}} mb={4} size={"sm"} key={pe}>
+                    {professionalExperiences.map((pe, index) => (
+                        <Box key={index}>
+                            <Text fontSize={{ base: 'md', sm: 'xl' }} mb={4} size={"sm"} key={pe}>
                                 {pe}
                             </Text>
                             <Divider opacity={"30%"} mb={4} mt={4} width={"10%"} />
-                        </>
+                        </Box>
                     ))}
                 </GridItem>
             </Grid>
