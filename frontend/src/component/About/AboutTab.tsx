@@ -13,7 +13,7 @@ export default function AboutTab() {
                 <Heading>DevOps</Heading>
                 <Divider mb={4} />
 
-                <Box align={'justify'} fontSize={{ base: 'md', sm: 'xl' }}>
+                <Box textAlign={"justify"} fontSize={{ base: 'md', sm: 'xl' }}>
                     <Text mb={2}>
                         <Highlight
                             query={['Luther']}

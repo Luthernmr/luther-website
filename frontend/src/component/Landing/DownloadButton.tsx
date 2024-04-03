@@ -17,4 +17,4 @@ export default function DownloadButton() {
             Téléchargez mon CV
         </Button>
     );
-};
+}
