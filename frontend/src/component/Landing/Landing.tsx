@@ -12,6 +12,7 @@ import Header from "../Header/Header";
 import DownloadButton from './DownloadButton'
 
 import "rotating-text/dist/index.css";
+import Headband from "./Headband";
 
 export default function Landing() {
   const expertises = [
@@ -77,9 +78,11 @@ export default function Landing() {
               </Wrap>
                 <DownloadButton/>
             </VStack>
+
           </Center>
         </VStack>
       </Center>
+            <Headband />
     </Flex>
   );
 }

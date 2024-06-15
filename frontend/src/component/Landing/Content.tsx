@@ -1,11 +1,17 @@
 import {
   Box,
   Center,
+  Divider,
+  Flex,
+  HStack,
+  Heading,
+  SimpleGrid,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
+  Text,
   VStack,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
@@ -15,6 +21,25 @@ import ExperiencesTab from "../About/ExperiencesTab"
 import SkillsTab from "../About/SkillTab"
 import EducationTab from "../About/EducationTab"
 import AboutTab from "../About/AboutTab"
+
+const boxContent = [
+  {
+    heading: "Solution Cloud",
+    text: "Propulsez votre projet avec mes services de cloud engineering spécialisés sur AWS. Bénéficiez d'une expertise personnalisée pour concevoir, déployer et gérer votre infrastructure cloud avec efficacité et fiabilité.",
+    img: "/test"
+  },
+  {
+    heading: "Developpement",
+    text: "Nous concevons des solutions web sur mesure, adaptées à vos besoins, pour répondre efficacement à vos défis en ligne. Notre expertise vous assure des résultats fiables et performants.",
+    img: "/test"
+  },
+  {
+    heading: "Devops",
+    text: "Accélérez la livraison logicielle tout en leurs assurant la stabilité et fiabilité grâce à notre approche axée sur l'automatisation des processus, l'intégration continue, le déploiement continu et la surveillance permanente. Favorisez une collaboration optimale entre les équipes de développement et d'exploitation pour des résultats plus rapides et efficaces.",
+    img: "/test"
+  },
+
+]
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Content() {
@@ -36,7 +61,7 @@ export default function Content() {
   }, []);
 
   return (
-    <Center id="about" w={"100%"} flexDirection={"column"}>
+    <Center id="about" w={"100%"} flexDirection={"column"} mt={10}>
       <VStack
         h={"100%"}
         minH={"100%"}
@@ -55,7 +80,7 @@ export default function Content() {
           color={"white"}
           w={"95%"}
           maxH={"80vh"}
-          maxW={{ base:"95%", md:"80%"}}
+          maxW={{ base: "95%", md: "80%" }}
           minH={"80vh"}
           id="preview"
           overflow={'auto'}
@@ -75,7 +100,40 @@ export default function Content() {
             },
           }}
         >
-          <Tabs
+          <SimpleGrid columns={2} spacing={10} padding={4}>
+            {boxContent.map((content, index) => (
+              <Box
+                key={index}
+                p={5}
+                boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                bg="whiteAlpha.100"
+                borderRadius={"20px"}
+                backdropFilter="auto"
+                backdropBlur="15px"
+                border={"1px solid"}
+                borderColor={" whiteAlpha.100"}
+                transition={"ease-in-out 0.3s"}
+                _hover={{
+                  backdropFilter: "auto ", 
+                backdropBlur:"50px",
+
+                  borderRadius: "10px"
+
+                }}
+                color={"white"} height='100%'>
+                <Heading>{content.heading}</Heading>
+                <Text>{content.text}</Text>
+                <Divider mt={1} mb={1}/>
+                <Flex justifyContent={"space-between"}>
+                <Text fontSize='sm' color={"white"} opacity={"50%"}>En savoir plus</Text>
+                <Text fontSize='sm' color={"white"} opacity={"50%"}>AWS</Text>
+                </Flex>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </Box>
+      </VStack>
+      {/* <Tabs
             variant="soft-rounded"
             colorScheme="brand"
             color={"white"}
@@ -104,9 +162,7 @@ export default function Content() {
                 <EducationTab />
               </TabPanel>
             </TabPanels>
-          </Tabs>
-        </Box>
-      </VStack>
+          </Tabs> */}
     </Center>
   );
 }

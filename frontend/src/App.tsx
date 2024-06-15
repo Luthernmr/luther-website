@@ -6,6 +6,7 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "./component/Footer/Footer";
+import Headband from "./component/Landing/Headband";
 
 gsap.registerPlugin(ScrollTrigger);
 function App() {
