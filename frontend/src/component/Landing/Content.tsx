@@ -101,7 +101,7 @@ export default function Content() {
             },
           }}
         >
-          <SimpleGrid columns={2} spacing={10} padding={2}>
+          <SimpleGrid columns={2} spacing={5} padding={5}>
             {boxContent.map((content, index) => (
               <Flex
                 justifyContent={"space-between"}
@@ -129,7 +129,7 @@ export default function Content() {
                   <Text>{content.text}</Text>
                 </Box>
                 <Flex justifyContent={"space-between"} flexDirection={"column"}>
-                  <Divider mt={1} mb={1} />
+                  <Divider mt={5} mb={2} />
                   <Flex justifyContent={"space-between"}>
 
                     <Text fontSize='sm' color={"white"} opacity={"50%"}>En savoir plus</Text>
