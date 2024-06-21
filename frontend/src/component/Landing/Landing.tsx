@@ -17,7 +17,7 @@ import Headband from "./Headband";
 export default function Landing() {
   const expertises = [
     "Cloud Engineering",
-    "Mircoservices",
+    "Monitoring",
     "AWS",
     "DevOps",
     "Automation",
@@ -27,15 +27,15 @@ export default function Landing() {
   ];
 
   return (
-    
-    <Flex height="100vh" flexDirection={"column"}  width={"100%"} id="services" >
-      <Center h={"20%"}      minW={{ base:"95%", md:"80%"}}
-      position={{base:"relative", md: "sticky"}}
-      top={0}
+
+    <Flex height="100vh" flexDirection={"column"} width={"100%"} id="services" >
+      <Center h={"20%"} minW={{ base: "95%", md: "80%" }}
+        position={{ base: "relative", md: "sticky" }}
+        top={0}
 
       >
-      <Header />
-        </Center>
+        <Header />
+      </Center>
       <Center height={"80%"} >
         <VStack
           justifyContent={"center"}
@@ -46,43 +46,43 @@ export default function Landing() {
         >
           <Wrap
             flexDirection={"row"}
-            maxW={{ base:"95%", md:"80%"}}
+            maxW={{ base: "95%", md: "80%" }}
             spacing={0}
             justify={"center"}
             spacingY={4}
-            >
-           
-              <Heading id="hone" textAlign={"center"} size={{base:'md', md:"xl" }} >Plongez dans mon univers professionnel en explorant mon CV détaillé, où chaque expérience et compétence reflète mon parcours et mes ambitions. </Heading>
-              
+          >
+
+            <Heading id="hone" textAlign={"center"} size={{ base: 'md', md: "xl" }} >Plongez dans mon univers professionnel, où chaque expérience et compétence reflète mon parcours et mes ambitions. </Heading>
+
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
             <VStack spacing={4}>
               <Text id="content">SERVICES / EXPERTISES</Text>
-              <Wrap justify="center"       maxW={{ base:"90%",md:"60%"}}  mb={4}>
+              <Wrap justify="center" maxW={{ base: "90%", md: "60%" }} mb={4}>
                 {expertises.map((expertise) => (
                   <WrapItem key={expertise}>
                     <Tag
                       id="content"
                       p={2}
-                      size={{base: "sm", xl:"xl"}}
+                      size={{ base: "sm", xl: "xl" }}
                       key={expertise}
                       borderRadius="full"
                       variant="outline"
                       colorScheme="whity"
                       color={"white"}
-                      >
+                    >
                       <Text>{expertise}</Text>
                     </Tag>
                   </WrapItem>
                 ))}
               </Wrap>
-                <DownloadButton/>
+              <DownloadButton />
             </VStack>
 
           </Center>
         </VStack>
       </Center>
-            <Headband />
+      <Headband />
     </Flex>
   );
 }

@@ -6,38 +6,39 @@ import {
   HStack,
   Heading,
   SimpleGrid,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ExperiencesTab from "../About/ExperiencesTab"
-import SkillsTab from "../About/SkillTab"
-import EducationTab from "../About/EducationTab"
-import AboutTab from "../About/AboutTab"
 
 const boxContent = [
   {
     heading: "Solution Cloud",
-    text: "Propulsez votre projet avec mes services de cloud engineering spécialisés sur AWS. Bénéficiez d'une expertise personnalisée pour concevoir, déployer et gérer votre infrastructure cloud avec efficacité et fiabilité.",
-    img: "/test"
+    text: "Optimisez / Migrez votre infrastructure avec nos solutions cloud flexibles et évolutives. Bénéficiez de la sécurité, de la performance et d'une haute disponibilité. Réduisez les coûts opérationnels et augmentez l'efficacité en tirant parti de la puissance du cloud pour soutenir votre croissance.",
+    img: "/test",
+    stack: ["AWS", "Kubernetes"]
   },
   {
     heading: "Developpement",
-    text: "Nous concevons des solutions web sur mesure, adaptées à vos besoins, pour répondre efficacement à vos défis en ligne. Notre expertise vous assure des résultats fiables et performants.",
-    img: "/test"
+    text: "Créez des sites web performants et intuitifs. Conception d'interfaces utilisateur attrayantes et fonctionnelles. Assurez une expérience utilisateur optimale sur tous les appareils avec des solutions web réactives et robustes.",
+    img: "/test",
+    stack: ["TypeScript / React", "NestJs"]
   },
   {
     heading: "Devops",
     text: "Accélérez la livraison logicielle tout en leurs assurant la stabilité et fiabilité grâce à notre approche axée sur l'automatisation des processus, l'intégration continue, le déploiement continu et la surveillance permanente. Favorisez une collaboration optimale entre les équipes de développement et d'exploitation pour des résultats plus rapides et efficaces.",
-    img: "/test"
+    img: "/test",
+    stack: ["GitLab", "Github Actions", "Docker"]
   },
+  {
+    heading: "Monitoring",
+    text: "Surveillez en permanence vos systèmes et processus pour garantir leur bon fonctionnement. Identifiez et corrigez rapidement les anomalies grâce au monitoring.",
+    img: "/test",
+    stack: ["Grafana", "CloudWatch"]
+  }
+
 
 ]
 
@@ -100,9 +101,11 @@ export default function Content() {
             },
           }}
         >
-          <SimpleGrid columns={2} spacing={10} padding={4}>
+          <SimpleGrid columns={2} spacing={10} padding={2}>
             {boxContent.map((content, index) => (
-              <Box
+              <Flex
+                justifyContent={"space-between"}
+                flexDirection={"column"}
                 key={index}
                 p={5}
                 boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
@@ -114,55 +117,34 @@ export default function Content() {
                 borderColor={" whiteAlpha.100"}
                 transition={"ease-in-out 0.3s"}
                 _hover={{
-                  backdropFilter: "auto ", 
-                backdropBlur:"50px",
+                  backdropFilter: "auto ",
+                  backdropBlur: "50px",
 
                   borderRadius: "10px"
 
                 }}
                 color={"white"} height='100%'>
-                <Heading>{content.heading}</Heading>
-                <Text>{content.text}</Text>
-                <Divider mt={1} mb={1}/>
-                <Flex justifyContent={"space-between"}>
-                <Text fontSize='sm' color={"white"} opacity={"50%"}>En savoir plus</Text>
-                <Text fontSize='sm' color={"white"} opacity={"50%"}>AWS</Text>
+                <Box>
+                  <Heading>{content.heading}</Heading>
+                  <Text>{content.text}</Text>
+                </Box>
+                <Flex justifyContent={"space-between"} flexDirection={"column"}>
+                  <Divider mt={1} mb={1} />
+                  <Flex justifyContent={"space-between"}>
+
+                    <Text fontSize='sm' color={"white"} opacity={"50%"}>En savoir plus</Text>
+                    <HStack alignItems={"end"}>
+                      <Text fontSize='sm' color={"white"} opacity={"50%"}>
+                        {content.stack.join(' - ')}
+                      </Text>
+                    </HStack>
+                  </Flex>
                 </Flex>
-              </Box>
+              </Flex>
             ))}
           </SimpleGrid>
         </Box>
       </VStack>
-      {/* <Tabs
-            variant="soft-rounded"
-            colorScheme="brand"
-            color={"white"}
-            minH={"100%"}
-            maxH={'100%'}
-            width={"100%"}
-            size={"sm"}
-          >
-            <TabList maxH={'20%'} p={4} >
-              <Tab color={"white"}>Moi</Tab>
-              <Tab color={"white"}>Skills</Tab>
-              <Tab color={"white"}>Expériences</Tab>
-              <Tab color={"white"}>Éducation</Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel >
-                <AboutTab />
-              </TabPanel>
-              <TabPanel>
-                <SkillsTab />
-              </TabPanel>
-              <TabPanel>
-                <ExperiencesTab />
-              </TabPanel>
-              <TabPanel>
-                <EducationTab />
-              </TabPanel>
-            </TabPanels>
-          </Tabs> */}
     </Center>
   );
 }
