@@ -8,7 +8,8 @@ import {
   SimpleGrid,
   Text,
   VStack,
-} from "@chakra-ui/react";
+  Link} from "@chakra-ui/react";
+
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,7 +19,7 @@ const boxContent = [
     heading: "Solution Cloud",
     text: "Optimisez / Migrez votre infrastructure avec nos solutions cloud flexibles et évolutives. Bénéficiez de la sécurité, de la performance et d'une haute disponibilité. Réduisez les coûts opérationnels et augmentez l'efficacité en tirant parti de la puissance du cloud pour soutenir votre croissance.",
     img: "/test",
-    stack: ["AWS", "Kubernetes"]
+    stack: ["AWS", "Terraform"]
   },
   {
     heading: "Developpement",
@@ -30,7 +31,7 @@ const boxContent = [
     heading: "Devops",
     text: "Accélérez la livraison logicielle tout en leurs assurant la stabilité et fiabilité grâce à notre approche axée sur l'automatisation des processus, l'intégration continue, le déploiement continu et la surveillance permanente. Favorisez une collaboration optimale entre les équipes de développement et d'exploitation pour des résultats plus rapides et efficaces.",
     img: "/test",
-    stack: ["GitLab", "Github Actions", "Docker"]
+    stack: ["GitLab", "Github Actions", "Docker", "Ansible"]
   },
   {
     heading: "Monitoring",
@@ -60,17 +61,17 @@ export default function Content() {
     });
 
   }, []);
-
+ 
   return (
     <Center id="about" w={"100%"} flexDirection={"column"} mt={10}>
       <VStack
         h={"100%"}
-        minH={"100%"}
         overflowX={"auto"}
         w={"100%"}
         justifyContent={"top"}
         id="box-justify">
         <Box
+          height={"100%"}
           boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
           bg="whiteAlpha.100"
           borderRadius={"20px"}
@@ -80,9 +81,7 @@ export default function Content() {
           borderColor={" whiteAlpha.100"}
           color={"white"}
           w={"95%"}
-          maxH={"80vh"}
           maxW={{ base: "95%", md: "80%" }}
-          minH={"80vh"}
           id="preview"
           overflow={'auto'}
           css={{
@@ -101,7 +100,7 @@ export default function Content() {
             },
           }}
         >
-          <SimpleGrid columns={2} spacing={5} padding={5}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} padding={5}>
             {boxContent.map((content, index) => (
               <Flex
                 justifyContent={"space-between"}
@@ -118,10 +117,8 @@ export default function Content() {
                 transition={"ease-in-out 0.3s"}
                 _hover={{
                   backdropFilter: "auto ",
-                  backdropBlur: "50px",
-
+                  backdropBlur: "100px",
                   borderRadius: "10px"
-
                 }}
                 color={"white"} height='100%'>
                 <Box>
@@ -131,8 +128,9 @@ export default function Content() {
                 <Flex justifyContent={"space-between"} flexDirection={"column"}>
                   <Divider mt={5} mb={2} />
                   <Flex justifyContent={"space-between"}>
+                    <Link>En savoir plus</Link>
 
-                    <Text fontSize='sm' color={"white"} opacity={"50%"}>En savoir plus</Text>
+
                     <HStack alignItems={"end"}>
                       <Text fontSize='sm' color={"white"} opacity={"50%"}>
                         {content.stack.join(' - ')}

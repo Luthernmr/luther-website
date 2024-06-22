@@ -9,7 +9,7 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import Header from "../Header/Header";
-import DownloadButton from './DownloadButton'
+import DownloadButton from './Accessibility/DownloadButton'
 
 import "rotating-text/dist/index.css";
 import Headband from "./Headband";

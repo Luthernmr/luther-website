@@ -82,8 +82,11 @@ function App() {
       </Box>
           <Flex flexDirection={"column"} id="landing" ref={myRef}>
             <Landing />
+            <Flex flexDirection={"column"} justifyContent={"space-between"}>
+
             <Content />
             <Footer />
+            </Flex>
           </Flex>
     </>
   );
