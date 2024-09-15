@@ -9,7 +9,7 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import Header from "../Header/Header";
-import DownloadButton from './Accessibility/DownloadButton'
+import MeetingButton from './Accessibility/MeetingButton'
 
 import "rotating-text/dist/index.css";
 import Headband from "./Headband";
@@ -21,9 +21,8 @@ export default function Landing() {
     "AWS",
     "DevOps",
     "Automation",
+    "Kubernetes",
     "Continuous Improvement",
-    "CI / CD",
-    "Web Development",
   ];
 
   return (
@@ -52,7 +51,7 @@ export default function Landing() {
             spacingY={4}
           >
 
-            <Heading id="hone" textAlign={"center"} size={{ base: 'md', md: "xl" }} >Plongez dans mon univers professionnel, où chaque expérience et compétence reflète mon parcours et mes ambitions. </Heading>
+            <Heading id="hone" textAlign={"center"} size={{ base: 'md', md: "xl" }} >Migrez vos applications vers le cloud et restez à la pointe de l'innovation en réduisant vos délais de mise sur le marché.</Heading>
 
           </Wrap>
           <Center flexDirection={"column"} justifyContent={"space-around"}>
@@ -76,7 +75,7 @@ export default function Landing() {
                   </WrapItem>
                 ))}
               </Wrap>
-              <DownloadButton />
+              <MeetingButton />
             </VStack>
 
           </Center>

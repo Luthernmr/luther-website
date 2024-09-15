@@ -17,28 +17,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const boxContent = [
   {
     heading: "Solution Cloud",
-    text: "Optimisez / Migrez votre infrastructure avec nos solutions cloud flexibles et évolutives. Bénéficiez de la sécurité, de la performance et d'une haute disponibilité. Réduisez les coûts opérationnels et augmentez l'efficacité en tirant parti de la puissance du cloud pour soutenir votre croissance.",
+    text: "Migrez votre infrastructure avec nos solutions cloud flexibles et évolutives. Bénéficiez de la sécurité, de la performance et d'une haute disponibilité. Augmentez l'efficacité en tirant parti de la puissance du cloud pour soutenir votre croissance.",
     img: "/test",
     stack: ["AWS", "Terraform"]
   },
   {
-    heading: "Developpement",
-    text: "Créez des sites web performants et intuitifs. Conception d'interfaces utilisateur attrayantes et fonctionnelles. Assurez une expérience utilisateur optimale sur tous les appareils avec des solutions web réactives et robustes.",
-    img: "/test",
-    stack: ["TypeScript / React", "NestJs"]
-  },
-  {
     heading: "Devops",
-    text: "Accélérez la livraison logicielle tout en leurs assurant la stabilité et fiabilité grâce à notre approche axée sur l'automatisation des processus, l'intégration continue, le déploiement continu et la surveillance permanente. Favorisez une collaboration optimale entre les équipes de développement et d'exploitation pour des résultats plus rapides et efficaces.",
+    text: "Accélérez la livraison logicielle tout en leurs assurant la stabilité et fiabilité grâce à notre approche axée sur l'automatisation des processus, l'intégration continue, le déploiement continu. Favorisez une collaboration optimale entre les équipes de développement et d'exploitation pour des résultats plus rapides et efficaces.",
     img: "/test",
     stack: ["GitLab", "Github Actions", "Docker", "Ansible"]
   },
   {
-    heading: "Monitoring",
-    text: "Surveillez en permanence vos systèmes et processus pour garantir leur bon fonctionnement. Identifiez et corrigez rapidement les anomalies grâce au monitoring.",
-    img: "/test",
-    stack: ["Grafana", "CloudWatch"]
+    heading: "Optimisation",
+    text: "Améliorez l'efficacité de vos infrastructures tout en réduisant vos dépenses. Identifiez les ressources sous-utilisées, optimisez les performances et assurez une gestion intelligente des coûts pour maximiser votre retour sur investissement.",
+    img: "/optimization",
+    stack: ["Terraform", "Kubernetes", "Grafana", "Prometheus"]
   }
+  
 
 
 ]
@@ -100,7 +95,7 @@ export default function Content() {
             },
           }}
         >
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} padding={5}>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} padding={5}>
             {boxContent.map((content, index) => (
               <Flex
                 justifyContent={"space-between"}
