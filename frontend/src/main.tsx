@@ -7,7 +7,6 @@ import '@fontsource/jetbrains-mono';
 import '@fontsource-variable/overpass';
 import '@fontsource-variable/nunito';
 import '@fontsource/syncopate';
-import AnimatedCursor from "react-animated-cursor"
 
 export const theme = extendTheme({
   colors: {
