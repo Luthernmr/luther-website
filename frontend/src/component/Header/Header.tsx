@@ -2,7 +2,7 @@ import { Flex, HStack, Link, Text } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import SocialButton from "../SocialButton";
 
-function Header() {
+const Header = ({ onOpen }) => {
   return (
     <Flex
       h={"100%"}
@@ -31,7 +31,7 @@ function Header() {
         
       >
         <Link display={{ base: "none", md: 'flex' }} href={"#services"}>ACCUEIL</Link>
-        <Link display={{ base: "none", md: 'flex' }} href={"#about"}>À PROPOS</Link>
+        <Link display={{ base: "none", md: 'flex' }} onClick={onOpen}>RÉSERVER UN CRÉNEAU</Link>
         <Link display={{ base: "none", md: 'flex' }} href={"https://www.linkedin.com/in/luthernmr/"} isExternal>CONTACT</Link>
         <SocialButton
           label={"Linkedin"}

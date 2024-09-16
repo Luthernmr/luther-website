@@ -4,6 +4,7 @@ import {
   Heading,
   Tag,
   Text,
+  useDisclosure,
   VStack,
   Wrap,
   WrapItem,
@@ -25,6 +26,8 @@ export default function Landing() {
     "Continuous Improvement",
   ];
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
 
     <Flex height="100vh" flexDirection={"column"} width={"100%"} id="services" >
@@ -33,7 +36,7 @@ export default function Landing() {
         top={0}
 
       >
-        <Header />
+        <Header onOpen={onOpen} />
       </Center>
       <Center height={"80%"} >
         <VStack
@@ -75,7 +78,7 @@ export default function Landing() {
                   </WrapItem>
                 ))}
               </Wrap>
-              <MeetingButton />
+              <MeetingButton isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
             </VStack>
 
           </Center>
