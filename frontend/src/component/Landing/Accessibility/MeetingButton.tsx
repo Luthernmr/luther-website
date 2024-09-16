@@ -1,7 +1,13 @@
 import { Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay } from "@chakra-ui/react";
 import HubSpotMeeting from "./Meeting"
 
-const ModalComponent = ({ isOpen , onClose, onOpen }) =>  {
+interface ModalComponentProps {
+    isOpen: boolean;
+    onClose: () => void;
+    onOpen?: () => void; // onOpen is optional here if you don't need it
+  }
+
+const ModalComponent: React.FC<ModalComponentProps> = ({ isOpen , onClose, onOpen }) =>  {
 
 
     return (

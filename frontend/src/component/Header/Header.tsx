@@ -1,8 +1,10 @@
 import { Flex, HStack, Link, Text } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import SocialButton from "../SocialButton";
-
-const Header = ({ onOpen }) => {
+interface HeaderProps {
+  onOpen? : () => void
+}
+const Header: React.FC<HeaderProps> = ({ onOpen }) => {
   return (
     <Flex
       h={"100%"}
