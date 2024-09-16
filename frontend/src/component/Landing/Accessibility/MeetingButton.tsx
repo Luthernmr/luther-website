@@ -6,7 +6,7 @@ export default function MeetingButton() {
 
     return (
         <>
-            <Button rounded={'full'} onClick={onOpen} boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
+            <Button rounded={'full'}  fontSize={{ base: "xs", xl: "lg" }}  onClick={onOpen} boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
                 Je réserve un créneau pour discuter de mon projet ! 🗓
             </Button>
 
