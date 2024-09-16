@@ -1,6 +1,9 @@
 import { Flex, HStack, Link, Text } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiMalt } from "react-icons/si";
+
 import SocialButton from "../SocialButton";
+import MaltButton from "../MaltButton";
 interface HeaderProps {
   onOpen? : () => void
 }
@@ -15,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
       alignItems={"center"}
       opacity={0.9}
     >
-      <Text align={"center"} fontSize={"2xl"} fontWeight={"light"}>
+      <Text align={"center"} fontSize={{base : "xl", md:"2xl"}} fontWeight={"light"}>
         LUTHER NEMOR
       </Text>
       <HStack
@@ -29,12 +32,18 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
         paddingRight={{base:"3", md:"10"}}
         border={"1px solid"}
         borderColor={"whiteAlpha.100"}
-        spacing={{base:"3", md:"8"}}
+        spacing={{base:"2", md:"8"}}
         
       >
         <Link display={{ base: "none", md: 'flex' }} href={"#services"}>ACCUEIL</Link>
         <Link display={{ base: "none", md: 'flex' }} onClick={onOpen}>RÉSERVER UN CRÉNEAU</Link>
         <Link display={{ base: "none", md: 'flex' }} href={"https://www.linkedin.com/in/luthernmr/"} isExternal>CONTACT</Link>
+        <MaltButton
+          label={"Malt"}
+          href={"https://www.malt.fr/profile/luthernemor"}
+        >
+          <SiMalt size={"2xl"}/>
+        </MaltButton>
         <SocialButton
           label={"Linkedin"}
           href={"https://www.linkedin.com/in/luthernmr/"}
@@ -42,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
           <FaLinkedin />
         </SocialButton>
         <SocialButton
-          label={"Githun"}
+          label={"Github"}
           href={"https://github.com/Luthernmr"}
         >
           <FaGithub />

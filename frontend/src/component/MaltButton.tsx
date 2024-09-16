@@ -1,7 +1,8 @@
 import { chakra, useColorModeValue, VisuallyHidden } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
-export default function SocialButton ({
+
+  export default function MaltButton ({
     children,
     label,
     href,
@@ -12,10 +13,11 @@ export default function SocialButton ({
   }) {
     return (
       <chakra.a
-        bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+        bg={useColorModeValue("#FC5757", "whiteAlpha.100")}
         rounded={"full"}
         w={12}
         h={12}
+        p={1}
         cursor={"pointer"}
         as={"a"}
         href={href}

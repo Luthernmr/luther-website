@@ -1,18 +1,20 @@
 import { Center, HStack, Stack, Text } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import SocialButton from "../SocialButton";
+import MaltButton from "../MaltButton";
+import { SiMalt } from "react-icons/si";
 
 export default function Footer() {
   return (
     <Center id="about" h={"100%"} w={"100%"} flexDirection={"column"}>
       <Stack
-        mt={{base:"5", sm:"2"}}
+        mt={{ base: "5", sm: "2" }}
         direction={"row"}
         justifyContent={"space-between"}
         spacing={6}
         alignItems={"center"}
         color={"white"}
-        w={{ base:"90%", md:"80%"}}
+        w={{ base: "90%", md: "80%" }}
       >
         <Text>
           ©{new Date().getFullYear()} Luther Nemor - All rights reserved
@@ -30,6 +32,12 @@ export default function Footer() {
           >
             <FaGithub />
           </SocialButton>
+          <MaltButton
+            label={"Malt"}
+            href={"https://www.malt.fr/profile/luthernemor"}
+          >
+            <SiMalt size={"2xl"} />
+          </MaltButton>
         </HStack>
       </Stack>
     </Center>
