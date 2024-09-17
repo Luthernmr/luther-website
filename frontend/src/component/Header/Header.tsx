@@ -42,7 +42,8 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
           label={"Malt"}
           href={"https://www.malt.fr/profile/luthernemor"}
         >
-          <SiMalt size={"2xl"}/>
+          <SiMalt aria-hidden="true" size={"2xl"}/>
+          <noscript>Malt</noscript>
         </MaltButton>
         <SocialButton
           label={"Linkedin"}
