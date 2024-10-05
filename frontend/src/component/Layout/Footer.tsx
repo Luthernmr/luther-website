@@ -6,7 +6,7 @@ import { SiMalt } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <Center id="about" h={"100%"} w={"100%"} flexDirection={"column"}>
+    <Center id="about" h={"100%"} w={"100%"} flexDirection={"column"} p={2}>
       <Stack
         mt={{ base: "5", sm: "2" }}
         direction={"row"}

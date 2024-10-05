@@ -1,0 +1,207 @@
+---
+title: Introduction à OpenID Connect (OIDC) avec AWS IAM et GitHub Actions
+description: Comprendre comment utiliser OIDC pour autoriser des actions GitHub à interagir avec AWS.
+---
+# Introduction à OpenID Connect (OIDC) avec AWS IAM et GitHub Actions
+
+OpenID Connect (OIDC) est une couche d'identité construite sur le protocole OAuth 2.0, qui permet de vérifier l'identité d'un utilisateur sur une application cliente en utilisant un fournisseur d'identité (IdP). Avec OIDC, GitHub Actions peut interagir de manière sécurisée avec AWS en assumant des rôles IAM, sans nécessiter l'utilisation de clés d'accès statiques.
+Dans cet article, nous allons voir :
+
+1. Ce qu'est OIDC et comment il fonctionne.
+2. Un exemple de policy IAM pour autoriser GitHub Actions via OIDC.
+3. Un template Terraform pour configurer cette policy.
+4. Un workflow GitHub Actions utilisant cette configuration.
+
+## Fonctionnement de OIDC
+
+OIDC permet de déléguer l'authentification d'une application à un fournisseur d'identité. Dans le contexte de GitHub Actions et AWS, OIDC permet à GitHub d'obtenir un **jeton OIDC** à partir d'un IdP (ici GitHub) et de l'envoyer à AWS pour demander des autorisations spécifiques à un rôle IAM.
+
+### Pourquoi utiliser OIDC avec GitHub et AWS ?
+
+Traditionnellement, GitHub Actions devait utiliser des secrets tels que des clés d'accès AWS pour interagir avec des ressources AWS. Avec OIDC, vous n'avez plus besoin de stocker de clés d'accès AWS dans vos secrets GitHub. L'autorisation est gérée dynamiquement via des jetons OIDC, ce qui améliore la sécurité et réduit les risques.
+
+### Comment OIDC fonctionne avec GitHub Actions ?
+
+1. **GitHub demande un jeton OIDC** : Lorsque votre workflow GitHub s'exécute, il demande un jeton OIDC à GitHub Actions.
+2. **Validation du jeton par AWS** : AWS valide le jeton OIDC reçu à travers un rôle IAM préconfiguré qui autorise l'accès basé sur ce jeton.
+3. **AssumeRoleWithWebIdentity** : Une fois le jeton validé, AWS permet à GitHub Actions d'assumer un rôle IAM et d'obtenir des permissions pour interagir avec vos ressources AWS.
+
+---
+
+## Exemple de Policy IAM avec OIDC
+
+Voici un exemple de policy IAM qui autorise un rôle spécifique à être assumé par GitHub Actions à travers OIDC :
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Effect": "Allow",
+"Principal": {
+"Federated": "arn:aws:iam::<ACCOUNT_ID>:oidc-provider/token.actions.githubusercontent.com"
+},
+"Action": "sts:AssumeRoleWithWebIdentity",
+"Condition": {
+"StringEquals": {
+"token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
+"token.actions.githubusercontent.com:sub": "repo:<YOUR_ORG>/<YOUR_REPO>:ref:refs/heads/<YOUR_BRANCH>"
+}
+}
+}
+]
+}
+```
+
+### Explication des éléments de la Policy
+
+- **Principal** : Le fournisseur OIDC est défini via le principal fédéré, qui pointe vers GitHub Actions.
+- **Condition** : Nous vérifions ici que le jeton provient d'un dépôt et d'une branche spécifiques, en utilisant le paramètre `sub` (subject).
+
+---
+
+## Template Terraform pour configurer OIDC avec AWS
+
+Vous pouvez utiliser Terraform pour créer automatiquement le rôle IAM et configurer la politique OIDC. Voici un template Terraform à inclure directement dans votre fichier `.tf`.
+
+### Terraform (`main.tf`)
+
+```hcl
+resource "aws_iam_openid_connect_provider" "github_oidc_provider" {
+  url = var.oidc_provider_url
+
+  client_id_list = var.client_id_list
+
+  thumbprint_list = var.thumbprint_list
+  tags = {
+    env = "${var.env}"
+    name = "${var.project_name}-${var.env}-oidc-provider"
+  }
+}
+
+resource "aws_iam_role" "oidc_role" {
+  name = "${var.project_name}-${var.env}-oidc-role"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow",
+        Principal = {
+          Federated = aws_iam_openid_connect_provider.github_oidc_provider.arn
+        },
+        Action = "sts:AssumeRoleWithWebIdentity",
+        Condition = {
+          StringEquals = {
+            "token.actions.githubusercontent.com:aud" : "sts.amazonaws.com",
+            "token.actions.githubusercontent.com:sub" : "repo:${var.github_organisation}/${var.github_repo}:ref:refs/heads/${var.github_branch}"
+          }
+        }
+      }
+    ]
+  })
+
+  tags = {
+    env = "${var.env}"
+    name = "${var.project_name}-${var.env}-oidc-role"
+  }
+}
+
+resource "aws_iam_policy" "ecr_policy" {
+  name        = "${var.project_name}-${var.env}-ecr-access-policy"
+  description = "Policy to allow ECR access for CI/CD"
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "ecr:GetAuthorizationToken",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "ecr:PutImage",
+          "ecr:InitiateLayerUpload",
+          "ecr:UploadLayerPart",
+          "ecr:CompleteLayerUpload",
+          "ecr:DescribeRepositories",
+          #"ecr:CreateRepository",
+          #"ecr:DeleteRepository"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "attach_ecr_policy" {
+  policy_arn = aws_iam_policy.ecr_policy.arn
+  role       = aws_iam_role.oidc_role.name  # Remplace par le nom de ton rôle existant
+}
+```
+
+---
+
+## Exemple de workflow GitHub Actions utilisant OIDC
+
+Enfin, voici un exemple de workflow GitHub Actions à inclure directement dans un fichier `.yaml`.
+
+### GitHub Actions (`.github/workflows/deploy.yml`)
+
+```yaml
+name: AWS example workflow
+on:
+  push:
+    branches:
+      - develop
+env:
+  ECR_REGISTRY : "<AWS_ECR_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com"
+  ECR_REPO : "<AWS_REPOSITORY_NAME>"
+  AWS_REGION : "<AWS_REGION>"
+# permission can be added at job level or workflow level
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+jobs:
+  S3PackageUpload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: <AWS_ROLE_ARN>
+          role-session-name: <SESSION_NAME> # you what you want.
+          aws-region: ${{ env.AWS_REGION }}
+      
+      - name: Log in to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build the Docker image
+        run: |
+          docker build -t ${{ env.ECR_REPO }} .
+          
+      - name: Tag the Docker image
+        run: |
+          docker tag ${{ env.ECR_REPO }}:latest ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPO }}:latest
+          
+      - name: Push the Docker image to ECR
+        run: |
+          docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPO}}:latest
+```
+
+### Explication du workflow
+
+1. **OIDC Configuration** : Le workflow utilise l'action officielle AWS `configure-aws-credentials` qui gère automatiquement l'authentification via OIDC.
+2. **Sync avec S3** : Une fois l'authentification effectuée, il synchronise les fichiers de l'application avec un bucket S3.
+
+---
+
+## Conclusion
+
+OIDC est une méthode sécurisée et moderne pour gérer les autorisations entre GitHub Actions et AWS, sans avoir à gérer manuellement des secrets tels que des clés d'accès. En suivant cet exemple, vous pouvez configurer votre environnement pour permettre à vos workflows GitHub de s'exécuter en toute sécurité sur AWS.
+N'hésitez pas à ajuster les détails spécifiques tels que les noms des dépôts, branches ou rôles IAM pour correspondre à vos besoins spécifiques.
