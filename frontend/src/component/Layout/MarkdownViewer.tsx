@@ -25,8 +25,8 @@ type CustomMDXComponents = {
   li?: (props: { children?: ReactNode }) => JSX.Element;
   ul?: (props: { children?: ReactNode }) => JSX.Element;
   ol?: (props: { children?: ReactNode }) => JSX.Element;
-  code?: (props: { children?: ReactNode; className?: string }) => JSX.Element;
-  strong: (props: { children?: ReactNode; className?: string }) => JSX.Element;
+  code?: (props: { children?: ReactNode }) => JSX.Element;
+  strong: (props: { children?: ReactNode }) => JSX.Element;
 };
 
 // Définition des composants customisés avec Chakra UI et coloration syntaxique
