@@ -1,6 +1,5 @@
-import { Center, Flex, HStack, Link, Text } from "@chakra-ui/react";
+import { Center, Flex, HStack, Link, Text, Image } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { SiMalt } from "react-icons/si";
 import { Link as RouterLink } from "react-router-dom";
 import SocialButton from "../SocialButton";
 import MaltButton from "../MaltButton";
@@ -48,8 +47,7 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
             label={"Malt"}
             href={"https://www.malt.fr/profile/luthernemor"}
           >
-            <SiMalt aria-hidden="true" size={"2xl"} />
-            <noscript>Malt</noscript>
+           <Image src="/logo-malt.png" />
           </MaltButton>
           <SocialButton
             label={"Linkedin"}
