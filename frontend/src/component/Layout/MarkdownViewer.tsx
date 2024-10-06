@@ -1,7 +1,7 @@
 import { useState, useEffect, ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Heading, Link, Text, ListItem, UnorderedList, OrderedList, Button, HStack } from '@chakra-ui/react';
+import { Box, Heading, Link, Text, ListItem, UnorderedList, OrderedList, Button, HStack, Divider } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { MDXProvider } from '@mdx-js/react';
 
@@ -22,11 +22,12 @@ type CustomMDXComponents = {
   h3?: (props: { children?: ReactNode }) => JSX.Element;
   p?: (props: { children?: ReactNode }) => JSX.Element;
   a?: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => JSX.Element;
+  strong: (props: { children?: ReactNode; className?: string }) => JSX.Element;
   li?: (props: { children?: ReactNode }) => JSX.Element;
   ul?: (props: { children?: ReactNode }) => JSX.Element;
   ol?: (props: { children?: ReactNode }) => JSX.Element;
+  hr?: () => JSX.Element;
   code?: (props: { children?: ReactNode; className?: string }) => JSX.Element;
-  strong: (props: { children?: ReactNode; className?: string }) => JSX.Element;
 };
 
 // Définition des composants customisés avec Chakra UI et coloration syntaxique
@@ -47,7 +48,7 @@ const CustomRendrer = {
   li: ({ children }: CustomProps) => <ListItem>{children}</ListItem>,
   ul: ({ children }: CustomProps) => <UnorderedList pl={4} mb={4}>{children}</UnorderedList>,
   ol: ({ children }: CustomProps) => <OrderedList pl={4} mb={4}>{children}</OrderedList>,
-
+  hr: () => <Divider borderColor="#0db3d0" borderWidth="1px" my={5} />,
   // Utilisation de react-syntax-highlighter pour les blocs de code
   code: ({ className, children }: CustomProps) => {
     const language = className ? className.replace("language-", "") : "text"; // Récupérer le langage du bloc de code
@@ -64,7 +65,7 @@ const CustomRendrer = {
       });
     };
     return (
-      <Box m={3}>
+      <Box m={{base: 1, md: 3}}>
         <HStack
           backgroundColor={"white"}
           bg="whiteAlpha.100"
@@ -129,6 +130,7 @@ const components: CustomMDXComponents = {
   li: CustomRendrer.li,
   ol: CustomRendrer.ol,
   code: CustomRendrer.code,
+  hr: CustomRendrer.hr,
 
 };
 
@@ -156,7 +158,7 @@ const MarkdownViewer = () => {
 
   return (
 
-    <Box backgroundColor={"#3b3b3b"} pb={"7em"}  pr={"7em"}  pl={"7em"}  pt={"5em"} color={"#c9d1d9"} shadow="md" borderRadius="md" minH="100vh" width={"100%"}>
+    <Box backgroundColor={"#3b3b3b"} p={{ base: 2, md :20}}  color={"#c9d1d9"} shadow="md" borderRadius="md" minH="100vh" width={"100%"}>
       <MDXProvider>
         <ReactMarkdown
           children={markdownText}
