@@ -6,9 +6,9 @@ import { SiMalt } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <Center id="about" h={"100%"} w={"100%"} flexDirection={"column"} p={2}>
+    <Center id="footer" h={"10vh"} w={"100%"} flexDirection={"column"} p={1}>
       <Stack
-        mt={{ base: "5", sm: "2" }}
+        mt={{ base: "5", sm: "0" }}
         direction={"row"}
         justifyContent={"space-between"}
         spacing={6}

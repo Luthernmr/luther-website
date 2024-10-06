@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom'; // Pour rendre le contenu des routes enfants

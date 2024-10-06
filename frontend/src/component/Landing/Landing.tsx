@@ -99,70 +99,66 @@ export default function Landing() {
     <>
       <Box id="test" position={"absolute"} minH={"100%"} width={"100%"} zIndex={1} ref={otherRef}></Box>
 
-      <Flex flexDirection={"column"} id="landing" ref={myRef}>
+      <Flex flexDirection={"column"} id="landing" ref={myRef} width={"100%"} height={"100%"}>
 
 
-      <Flex height="100vh" flexDirection={"column"} width={"100%"} id="services" >
-        <Center h={"10vh"} minW={{ base: "95%", md: "80%" }}
-          position={{ base: "relative", md: "sticky" }}
-          top={0}
-          
-          >
+        <Flex minHeight="100vh"  flexDirection={"column"} width={"100%"} id="services">
           <Header onOpen={onOpen} />
-        </Center>
-        <Center height={"80%"} >
-          <VStack
-            justifyContent={"center"}
-            alignItems={"center"}
-            h={"100%"}
-            color={"white"}
-            spacing={1}
+
+
+          <Center height={"80%"} flexGrow={1} >
+            <VStack
+              justifyContent={"center"}
+              alignItems={"center"}
+              h={"100%"}
+              color={"white"}
+              spacing={1}
             >
-            <Wrap
-              flexDirection={"row"}
-              maxW={{ base: "95%", md: "80%" }}
-              spacing={0}
-              justify={"center"}
-              spacingY={4}
+              <Wrap
+                flexDirection={"row"}
+                maxW={{ base: "95%", md: "80%" }}
+                spacing={0}
+                justify={"center"}
+                spacingY={4}
               >
 
-              <Heading id="hone" textAlign={"center"} size={{ base: 'md', md: "xl" }} >Migrez vos applications vers le cloud et restez à la pointe de l'innovation en réduisant vos délais de mise sur le marché.</Heading>
+                <Heading id="hone" textAlign={"center"} size={{ base: 'md', md: "xl" }} >Migrez vos applications vers le cloud et restez à la pointe de l'innovation en réduisant vos délais de mise sur le marché.</Heading>
 
-            </Wrap>
-            <Center flexDirection={"column"} justifyContent={"space-around"}>
-              <VStack spacing={4}>
-                <Text id="content">SERVICES / EXPERTISES</Text>
-                <Wrap justify="center" maxW={{ base: "90%", md: "60%" }} mb={4}>
-                  {expertises.map((expertise) => (
-                    <WrapItem key={expertise}>
-                      <Tag
-                        id="content"
-                        p={2}
-                        size={{ base: "sm", xl: "xl" }}
-                        key={expertise}
-                        borderRadius="full"
-                        variant="outline"
-                        colorScheme="whity"
-                        color={"white"}
+              </Wrap>
+              <Center flexDirection={"column"} justifyContent={"space-around"}>
+                <VStack spacing={4}>
+                  <Text id="content">SERVICES / EXPERTISES</Text>
+                  <Wrap justify="center" maxW={{ base: "90%", md: "60%" }} mb={4}>
+                    {expertises.map((expertise) => (
+                      <WrapItem key={expertise}>
+                        <Tag
+                          id="content"
+                          p={2}
+                          size={{ base: "sm", xl: "xl" }}
+                          key={expertise}
+                          borderRadius="full"
+                          variant="outline"
+                          colorScheme="whity"
+                          color={"white"}
                         >
-                        <Text>{expertise}</Text>
-                      </Tag>
-                    </WrapItem>
-                  ))}
-                </Wrap>
-                <MeetingButton isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
-              </VStack>
+                          <Text>{expertise}</Text>
+                        </Tag>
+                      </WrapItem>
+                    ))}
+                  </Wrap>
+                  <MeetingButton isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+                </VStack>
 
-            </Center>
-          </VStack>
-        </Center>
-        <Headband />
-    </Flex>
-    <Flex flexDirection={"column"} justifyContent={"space-between"}>
-                <Content />
-                <Footer />
-              </Flex>
+              </Center>
+            </VStack>
+          </Center>
+          <Headband />
+        </Flex>
+        <Flex flexDirection={"column"} justifyContent={"space-between"}>
+          <Content />
+          <Footer />
+        </Flex>
       </Flex>
-</>
-);
+    </>
+  );
 }
