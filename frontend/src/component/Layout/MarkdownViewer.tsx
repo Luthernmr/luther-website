@@ -1,7 +1,7 @@
 import { useState, useEffect, ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Heading, Link, Text, ListItem, UnorderedList, OrderedList, Button, HStack, Divider } from '@chakra-ui/react';
+import { Box, Heading, Link, Text, ListItem, UnorderedList, OrderedList, Button, HStack, Divider, Flex } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { MDXProvider } from '@mdx-js/react';
 
@@ -78,7 +78,7 @@ const CustomRendrer = {
           justifyContent={"space-between"}
         >
 
-          <Text>{language}</Text>
+          <Text  fontSize={{ base : "sm", md : "md"}}>{language}</Text>
           <Button
             onClick={handleCopy}
             size="xs"
@@ -91,9 +91,11 @@ const CustomRendrer = {
             {isCopied ? <CheckIcon /> : "Copy"}
           </Button>
         </HStack>
-        <SyntaxHighlighter style={oneDark} language={language} customStyle={{ borderRadius: "0px 0px 10px 10px", padding: "10px", margin: "none" }}>
+        <Flex fontSize={{ base : "2xs", md : "md"}} width={"100%"}>
+        <SyntaxHighlighter style={oneDark} language={language} customStyle={{ borderRadius: "0px 0px 10px 10px", padding: "10px", margin: "none", width: "100%" }}>
         {typeof children === 'string' ? children : String(children)}
         </SyntaxHighlighter>
+        </Flex>
       </Box>
     );
   },

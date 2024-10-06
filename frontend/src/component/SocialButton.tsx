@@ -14,8 +14,8 @@ export default function SocialButton ({
       <chakra.a
         bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
         rounded={"full"}
-        w={12}
-        h={12}
+        w={{base: 7, md :12}}
+        h={{base: 7, md :12}}
         cursor={"pointer"}
         as={"a"}
         href={href}

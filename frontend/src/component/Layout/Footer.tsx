@@ -5,21 +5,20 @@ import MaltButton from "../MaltButton";
 
 export default function Footer() {
   return (
-    <Center id="footer" h={"10vh"} w={"100%"} flexDirection={"column"} p={1}>
+    <Center id="footer" h={"7vh"} w={"100%"} flexDirection={"column"} p={1}>
       <Stack
-        mt={{ base: "5", sm: "0" }}
         direction={"row"}
         justifyContent={"space-between"}
-        spacing={6}
+        spacing={{base: 2, md :6}}
         alignItems={"center"}
         color={"white"}
-        w={{ base: "90%", md: "80%" }}
+        w="100%"
       >
-        <Text>
+        <Text fontSize={{ base : "2xs", md : "sm"}}>
           ©{new Date().getFullYear()} Luther Nemor - All rights reserved
         </Text>
         <HStack>
-          <SocialButton
+          <SocialButton 
             label={"Linkedin"}
             href={"https://www.linkedin.com/in/luthernmr/"}
           >

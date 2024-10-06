@@ -162,7 +162,11 @@ export default function Landing() {
         </Flex>
         <Flex flexDirection={"column"} justifyContent={"space-between"}>
           <Content />
-          <Footer />
+          <Center>
+            <Flex width={"80%"}>
+              <Footer />
+            </Flex>
+          </Center>
         </Flex>
       </Center>
     </>

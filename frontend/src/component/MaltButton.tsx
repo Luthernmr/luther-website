@@ -15,8 +15,8 @@ import { ReactNode } from "react";
       <chakra.a
         bg={useColorModeValue("#FC5757", "whiteAlpha.100")}
         rounded={"full"}
-        w={12}
-        h={12}
+        w={{base: 7, md :12}}
+        h={{base: 7, md :12}}
         p={1}
         cursor={"pointer"}
         as={"a"}

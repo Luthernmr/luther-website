@@ -143,7 +143,7 @@ const DocsLayout = () => {
           <Box
             overflowY="auto" // Permet le défilement dans la partie droite
             flexGrow={1} // Prend tout l'espace restant
-            maxHeight="75vh" // Limite la hauteur pour que le défilement fonctionne
+            maxHeight="78vh" // Limite la hauteur pour que le défilement fonctionne
             display="flex"
             flexDirection="column"
             height={"100%"}
