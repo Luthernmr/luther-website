@@ -99,10 +99,16 @@ export default function Landing() {
     <>
       <Box id="test" position={"absolute"} minH={"100%"} width={"100%"} zIndex={1} ref={otherRef}></Box>
 
-      <Flex flexDirection={"column"} id="landing" ref={myRef} width={"100%"} height={"100%"}>
 
 
-        <Flex minHeight="100vh"  flexDirection={"column"} width={"100%"} id="services">
+      <Center ref={myRef} width={"100%"} flexDirection={"column"}>
+
+        <Flex
+          minHeight="100vh"
+          flexDirection="column"
+          w={{ base: "95%", md: "95%" }}
+
+        >
           <Header onOpen={onOpen} />
 
 
@@ -158,7 +164,7 @@ export default function Landing() {
           <Content />
           <Footer />
         </Flex>
-      </Flex>
+      </Center>
     </>
   );
 }

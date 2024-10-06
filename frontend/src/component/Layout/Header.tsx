@@ -8,13 +8,13 @@ interface HeaderProps {
 }
 const Header: React.FC<HeaderProps> = ({ onOpen }) => {
   return (
-    <Center h="15vh" minW={{ base: "95%", md: "80%" }}>
+    <Center h="15vh">
 
       <Flex
         h={"100%"}
         color={"white"}
         flexDirection={"row"}
-        minW={{ base: "90%", md: "80%" }}
+        minW={{ base: "90%", md: "100%" }}
         justifyContent={"space-between"}
         alignItems={"center"}
         opacity={0.9}
