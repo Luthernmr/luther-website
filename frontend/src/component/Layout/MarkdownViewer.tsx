@@ -25,8 +25,8 @@ type CustomMDXComponents = {
   li?: (props: { children?: ReactNode }) => JSX.Element;
   ul?: (props: { children?: ReactNode }) => JSX.Element;
   ol?: (props: { children?: ReactNode }) => JSX.Element;
-  code?: (props: { children?: ReactNode }) => JSX.Element;
-  strong: (props: { children?: ReactNode }) => JSX.Element;
+  code?: (props: { children?: ReactNode; className?: string }) => JSX.Element;
+  strong: (props: { children?: ReactNode; className?: string }) => JSX.Element;
 };
 
 // Définition des composants customisés avec Chakra UI et coloration syntaxique
@@ -91,7 +91,7 @@ const CustomRendrer = {
           </Button>
         </HStack>
         <SyntaxHighlighter style={oneDark} language={language} customStyle={{ borderRadius: "0px 0px 10px 10px", padding: "10px", margin: "none" }}>
-          {children}
+        {typeof children === 'string' ? children : String(children)}
         </SyntaxHighlighter>
       </Box>
     );
