@@ -1,8 +1,7 @@
-import { Center, HStack, Stack, Text } from "@chakra-ui/react";
+import { Center, HStack, Stack, Text, Image } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import SocialButton from "../SocialButton";
 import MaltButton from "../MaltButton";
-import { SiMalt } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -36,7 +35,7 @@ export default function Footer() {
             label={"Malt"}
             href={"https://www.malt.fr/profile/luthernemor"}
           >
-            <SiMalt size={"2xl"} />
+            <Image src="/logo-malt.png" />
           </MaltButton>
         </HStack>
       </Stack>

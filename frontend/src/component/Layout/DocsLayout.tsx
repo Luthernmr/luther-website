@@ -1,4 +1,4 @@
-import { Flex, Center, VStack, Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Text, Link } from "@chakra-ui/react";
+import { Flex, VStack, Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Text, Link } from "@chakra-ui/react";
 import Header from './Header'; // Assurez-vous que le chemin d'importation est correct
 import Footer from './Footer'; // Assurez-vous que le chemin d'importation est correct
 import { Link as RouterLink, Outlet, useLocation } from "react-router-dom";
