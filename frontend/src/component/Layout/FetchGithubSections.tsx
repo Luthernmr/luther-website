@@ -32,7 +32,7 @@ export const fetchGithubSections = async (repoOwner: string, repoName: string, p
       // Ajouter le lien en enlevant l'extension .mdx
       sections.push({
         title: item.name.replace('.mdx', ''), // Enlève l'extension .mdx
-        links: [{ name: item.name.replace('.mdx', ''), path: `/docs/${item.path.replace('frontend/public/', '').replace('.mdx', '')}` }],
+        links: [{ name: item.name.replace('.mdx', ''), path: `/${item.path.replace('frontend/public/', '').replace('.mdx', '')}` }],
       });
     }
   }
