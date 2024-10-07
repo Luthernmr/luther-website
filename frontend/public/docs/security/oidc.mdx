@@ -1,6 +1,31 @@
-# OIDC
+import InteractiveCodeSwitcher from '../../../src/component/Docs/GitSelector';
 
-```yaml
+# OpenID Connect (OIDC) : Sécurité et authentification dans le cloud
+
+## Qu'est-ce que l'OIDC ?
+
+OpenID Connect (OIDC) est un protocole d'authentification construit sur OAuth 2.0. Il permet aux applications clientes de vérifier l'identité d'un utilisateur final en se basant sur l'authentification effectuée par un serveur d'autorisation, ainsi que d'obtenir des informations de profil basiques sur l'utilisateur.
+
+## Importance dans un contexte cloud
+
+Dans un environnement cloud, l'OIDC est crucial pour plusieurs raisons :
+
+1. **Sécurité renforcée** : OIDC élimine le besoin de stocker des secrets à long terme, réduisant ainsi les risques de sécurité.
+
+2. **Gestion centralisée des identités** : Facilite la gestion des accès à travers différents services cloud.
+
+3. **Interopérabilité** : OIDC est largement adopté, permettant une intégration facile entre différents fournisseurs de services.
+
+4. **Expérience utilisateur améliorée** : Permet l'authentification unique (SSO) à travers différentes applications.
+
+5. **Conformité** : Aide à respecter les réglementations en matière de protection des données.
+
+## Mise en place de l'OIDC sur GitHub
+### Example de workflow
+```test```
+
+<InteractiveCodeSwitcher
+  githubCode={`
 name: AWS example workflow
 on:
   push:
@@ -24,21 +49,62 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: <AWS_ROLE_ARN>
-          role-session-name: <SESSION_NAME> # you what you want.
-          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: <SESSION_NAME> # what you want.
+          aws-region: \${{ env.AWS_REGION }}
       
       - name: Log in to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build the Docker image
         run: |
-          docker build -t ${{ env.ECR_REPO }} .
+          docker build -t \${{ env.ECR_REPO }} .
           
       - name: Tag the Docker image
         run: |
-          docker tag ${{ env.ECR_REPO }}:latest ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPO }}:latest
+          docker tag \${{ env.ECR_REPO }}:latest \${{ env.ECR_REGISTRY }}/\${{ env.ECR_REPO }}:latest
           
       - name: Push the Docker image to ECR
         run: |
-          docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPO}}:latest
-```
+          docker push \${{ env.ECR_REGISTRY }}/\${{ env.ECR_REPO}}:latest
+`}
+  gitlabCode={`# Nom du pipeline
+stages:
+  - build
+  - deploy
+
+variables:
+  ECR_REGISTRY: "<AWS_ECR_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com"
+  ECR_REPO: "<AWS_REPOSITORY_NAME>"
+  AWS_REGION: "<AWS_REGION>"
+
+# Job pour la construction et le déploiement de l'image Docker
+build_and_deploy:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+  before_script:
+    - echo "Configuring AWS credentials"
+    - apk add --no-cache curl bash python3 py3-pip
+    - pip install --upgrade awscli
+    - aws --version
+    - echo "Logging in to Amazon ECR"
+    - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
+
+  script:
+    - echo "Cloning the repository"
+    - git clone <YOUR_REPO_URL>
+    - cd <YOUR_REPO_DIRECTORY>  # Remplacez par votre répertoire
+    - echo "Building the Docker image"
+    - docker build -t $ECR_REPO .
+    - echo "Tagging the Docker image"
+    - docker tag $ECR_REPO:latest $ECR_REGISTRY/$ECR_REPO:latest
+    - echo "Pushing the Docker image to ECR"
+    - docker push $ECR_REGISTRY/$ECR_REPO:latest
+
+  only:
+    - develop
+`}
+/>

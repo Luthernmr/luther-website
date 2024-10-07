@@ -24,6 +24,8 @@
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/mdx": "^3.0.1",
     "@mdx-js/react": "^2.3.0",
+    "@mdx-js/rollup": "^3.0.1",
+    "@mdx-js/runtime": "^1.6.22",
     "@mui/icons-material": "^5.14.15",
     "@mui/material": "^5.14.15",
     "@react-three/drei": "^9.102.6",
