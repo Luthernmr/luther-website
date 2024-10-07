@@ -4,26 +4,22 @@ import Footer from './Footer'; // Assurez-vous que le chemin d'importation est c
 import { Link as RouterLink, Outlet, useLocation } from "react-router-dom";
 import FOG from "vanta/dist/vanta.fog.min";
 import { useRef, useEffect, useState } from "react";
+import { fetchGithubSections } from './FetchGithubSections';
+import { Section } from './FetchGithubSections';
 
-export const sections = [
-  {
-    title: 'Overview',
-    links: [
-      { name: 'context', path: '/docs/overview/context' },
-      { name: 'contribute', path: '/docs/overview/contribute' },
-    ],
-  },
-  {
-    title: 'Security',
-    links: [
-      { name: 'oidc', path: '/docs/security/oidc' },
-    ],
-  },
-];
+
 
 const MainDocsNav = () => {
   const location = useLocation(); // Hook pour obtenir l'URL actuelle
+  const [sections, setSections] = useState<Section[]>([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedSections = await fetchGithubSections('Luthernmr', 'luther-website', 'frontend/public/docs');
+      setSections(fetchedSections);
+    };
+    fetchData();
+  }, []);
   return (
     <Flex
       minWidth="20em"

@@ -4,7 +4,10 @@ import { Link as RouterLink, useLocation } from "react-router-dom";
 import SocialButton from "../SocialButton";
 import MaltButton from "../MaltButton";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { sections } from "./DocsLayout";
+import { fetchGithubSections } from './FetchGithubSections';
+import { useState, useEffect } from "react";
+import { Section } from './FetchGithubSections';
+
 interface HeaderProps {
   onOpen?: () => void
   onClose?: () => void
@@ -53,7 +56,15 @@ const MainNav: React.FC<HeaderProps> = ({ onOpen }) => {
 
 const MobileDocsNav: React.FC<HeaderProps> = ({onClose}) => {
   const location = useLocation(); // Hook pour obtenir l'URL actuelle
+  const [sections, setSections] = useState<Section[]>([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedSections = await fetchGithubSections('Luthernmr', 'luther-website', 'frontend/public/docs');
+      setSections(fetchedSections);
+    };
+    fetchData();
+  }, []);
   return (
     <Flex display={{ base: "flex", md: "none" }} mt={5}>
       <Accordion allowMultiple width="100%" color={"black"} >

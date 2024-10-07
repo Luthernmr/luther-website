@@ -13,7 +13,6 @@ import {
 import Header from "../Layout/Header";
 import MeetingButton from './Accessibility/MeetingButton'
 
-import "rotating-text/dist/index.css";
 import Headband from "./Headband";
 import FOG from "vanta/dist/vanta.fog.min";
 import { useRef, useEffect, useState } from "react";
