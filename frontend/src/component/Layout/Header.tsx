@@ -31,7 +31,7 @@ const MainNav: React.FC<HeaderProps> = ({ onOpen }) => {
       <Link display={{ base: "none", md: 'flex' }} as={RouterLink} to="/">ACCUEIL</Link>
       <Link display={{ base: "none", md: 'flex' }} onClick={onOpen}>RÉSERVER UN CRÉNEAU</Link>
       <Link display={{ base: "none", md: 'flex' }} as={RouterLink} to="/docs">DOCS</Link>
-      <Link display={{ base: "none", md: 'flex' }} href={"https://www.linkedin.com/in/luthernmr/"} isExternal>CONTACT</Link>
+      <Link display={{ base: "none", md: 'flex' }} href={"https://www.linkedin.com/in/luthernmr-devops-cloud-fullstack-developpeur-cicd/"} isExternal>CONTACT</Link>
       <MaltButton
         label={"Malt"}
         href={"https://www.malt.fr/profile/luthernemor"}
@@ -40,7 +40,7 @@ const MainNav: React.FC<HeaderProps> = ({ onOpen }) => {
       </MaltButton>
       <SocialButton
         label={"Linkedin"}
-        href={"https://www.linkedin.com/in/luthernmr/"}
+        href={"https://www.linkedin.com/in/luthernmr-devops-cloud-fullstack-developpeur-cicd/"}
       >
         <FaLinkedin />
       </SocialButton>
@@ -147,7 +147,7 @@ const MobileNav: React.FC<HeaderProps> = () => {
               <Link as={RouterLink} to="/">ACCUEIL</Link>
               <Link onClick={onOpen}>RÉSERVER UN CRÉNEAU</Link>
               <Link as={RouterLink} to="/docs">DOCS</Link>
-              <Link href={"https://www.linkedin.com/in/luthernmr/"} isExternal>CONTACT</Link>
+              <Link href={"https://www.linkedin.com/in/luthernmr-devops-cloud-fullstack-developpeur-cicd/"} isExternal>CONTACT</Link>
               <HStack>
 
                 <MaltButton
@@ -158,7 +158,7 @@ const MobileNav: React.FC<HeaderProps> = () => {
                 </MaltButton>
                 <SocialButton
                   label={"Linkedin"}
-                  href={"https://www.linkedin.com/in/luthernmr/"}
+                  href={"https://www.linkedin.com/in/luthernmr-devops-cloud-fullstack-developpeur-cicd/"}
                 >
                   <FaLinkedin />
                 </SocialButton>
