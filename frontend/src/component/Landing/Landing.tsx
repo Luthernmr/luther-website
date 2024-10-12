@@ -20,6 +20,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "../Layout/Footer";
 import Content from "./Content";
+import Method from "./Method.tsx/Method";
+import CustomBox from "../CustomComponent/CustomBox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -159,14 +161,15 @@ export default function Landing() {
           </Center>
           <Headband />
         </Flex>
-        <Flex flexDirection={"column"} justifyContent={"space-between"}>
-          <Content />
-          <Center>
-            <Flex width={"80%"}>
+          <Center width={"100%"}>
+            <Flex maxW={{ base: "95%", md: "80%" }} flexDirection={"column"}>
+              <Content />
+              <CustomBox minHeight={"70vh"} mt={20} alignItems={"center"}>
+                <Method />
+              </CustomBox>
               <Footer />
             </Flex>
           </Center>
-        </Flex>
       </Center>
     </>
   );

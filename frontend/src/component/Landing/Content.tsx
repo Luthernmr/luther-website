@@ -17,13 +17,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const boxContent = [
   {
     heading: "Solution Cloud",
-    text: "Migrez votre infrastructure avec nos solutions cloud flexibles et évolutives. Bénéficiez de la sécurité, de la performance et d'une haute disponibilité. Augmentez l'efficacité en tirant parti de la puissance du cloud pour soutenir votre croissance.",
+    text: "Migrez votre infrastructure avec des solutions cloud flexibles et évolutives. Bénéficiez de la sécurité, de la performance et d'une haute disponibilité. Augmentez l'efficacité en tirant parti de la puissance du cloud pour soutenir votre croissance.",
     img: "/test",
     stack: ["AWS", "Terraform"]
   },
   {
     heading: "Devops",
-    text: "Accélérez la livraison logicielle tout en leurs assurant la stabilité et fiabilité grâce à notre approche axée sur l'automatisation des processus, l'intégration continue, le déploiement continu. Favorisez une collaboration optimale entre les équipes de développement et d'exploitation pour des résultats plus rapides et efficaces.",
+    text: "Accélérez la livraison logicielle tout en leurs assurant la stabilité et fiabilité grâce à une approche axée sur l'automatisation des processus de livraison, l'Infrastructure as Code, le monitoring. Favorisez une collaboration optimale entre les équipes de développement et d'exploitation pour des résultats plus rapides et efficaces.",
     img: "/test",
     stack: ["GitLab", "Github Actions", "Docker", "Ansible"]
   },
@@ -31,7 +31,7 @@ const boxContent = [
     heading: "Optimisation",
     text: "Améliorez l'efficacité de vos infrastructures tout en réduisant vos dépenses. Identifiez les ressources sous-utilisées, optimisez les performances et assurez une gestion intelligente des coûts pour maximiser votre retour sur investissement.",
     img: "/optimization",
-    stack: ["Terraform", "Kubernetes", "Grafana", "Prometheus"]
+    stack: ["Terraform", "Kubernetes", "Grafana", "FinOps"]
   }
   
 
@@ -75,8 +75,8 @@ export default function Content() {
           border={"1px solid"}
           borderColor={" whiteAlpha.100"}
           color={"white"}
-          w={"95%"}
-          maxW={{ base: "95%", md: "80%" }}
+  
+         
           id="preview"
           overflow={'auto'}
           css={{

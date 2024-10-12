@@ -27,6 +27,20 @@ export const theme = extendTheme({
         outlineColor: 'white',
       },
     },
+    Box: {
+      variants: {
+        custom: {
+          boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+          bg: "whiteAlpha.100",
+          borderRadius: "20px",
+          backdropFilter: "auto",
+          backdropBlur: "15px",
+          border: "1px solid",
+          borderColor: "whiteAlpha.100",
+          color: "white",
+        },
+      },
+    },
   },
 })
 
