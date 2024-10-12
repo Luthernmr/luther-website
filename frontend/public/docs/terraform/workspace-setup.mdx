@@ -1,0 +1,50 @@
+# Setup son environnement terraform
+
+## Structure des dossiers
+
+```
+root-directory/
+├── environments/
+│   ├── dev/
+│   │   ├── variables.tf
+│   │   ├── variables.tfvars
+│   │   ├── main.tf
+│   │   └── providers.tf
+│   ├── preprod/    
+│   │   ├── variables.tf
+│   │   ├── variables.tfvars
+│   │   ├── main.tf
+│   │   └── providers.tf
+│   └── prod/
+│        ├── variables.tf
+│        ├── variables.tfvars
+│        ├── main.tf
+│        └── providers.tf
+├── modules/
+│   ├── ecs/
+│   │   ├── input.tf
+│   │   ├── main.tf
+│   │   ├── roles.tf
+│   │   └── taskf_definition.tf
+│   └── elb/
+│        ├── input.tf
+│        ├── main.tf
+│        └── output.tf
+├── .gitignore
+└── README.md
+```
+
+Cette structure de fichiers est conçue pour modularité et gestion multi-environnement dans des projets Terraform :
+
+1. Modularité :
+  - Le répertoire **modules/** contient des composants réutilisables pour l'infrastructure (comme ecs/, elb/). Chaque module est isolé et peut être utilisé dans différents environnements avec des configurations spécifiques.
+
+2. Séparation des environnements :
+  - Le répertoire **environments/** contient des sous-dossiers pour chaque environnement (**dev**, **preprod**, **prod**), chacun avec ses propres fichiers de configuration (**variables.tf**, **variables.tfvars**, **main.tf**, **providers.tf**). Cela permet d'adapter les ressources aux besoins spécifiques de chaque environnement.
+
+### Avantages :
+- **Réutilisabilité** : Les modules peuvent être partagés entre les environnements sans dupliquer le code.
+- **Maintenabilité** : Les changements apportés à un module n'affectent pas les autres parties du projet.
+- **Gestion simplifiée des environnements** : Chaque environnement a sa propre configuration, ce qui permet de tester et de déployer progressivement des changements sans interférence entre eux.
+
+Cette organisation permet une infrastructure évolutive, maintenable et bien adaptée aux projets nécessitant des environnements distincts.
