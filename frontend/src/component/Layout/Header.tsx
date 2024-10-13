@@ -12,7 +12,18 @@ interface HeaderProps {
   onOpen?: () => void
   onClose?: () => void
 }
-const MainNav: React.FC<HeaderProps> = ({ onOpen }) => {
+const MainNav: React.FC<HeaderProps> = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Vérifiez si l'URL contient l'ancre #calendly
+    if (location.hash === '#calendly') {
+      const element = document.getElementById('calendly');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
   return (
     <HStack
       backgroundColor={"white"}
@@ -29,7 +40,7 @@ const MainNav: React.FC<HeaderProps> = ({ onOpen }) => {
       display={{ base: "none", md: "flex" }}
     >
       <Link display={{ base: "none", md: 'flex' }} as={RouterLink} to="/">ACCUEIL</Link>
-      <Link display={{ base: "none", md: 'flex' }} onClick={onOpen}>RÉSERVER UN CRÉNEAU</Link>
+      <Link display={{ base: "none", md: 'flex' }} as={RouterLink} to="/#calendly">RÉSERVER UN CRÉNEAU</Link>
       <Link display={{ base: "none", md: 'flex' }} as={RouterLink} to="/docs">DOCS</Link>
       <Link display={{ base: "none", md: 'flex' }} href={"https://www.linkedin.com/in/luthernmr-devops-cloud-fullstack-developpeur-cicd/"} isExternal>CONTACT</Link>
       <MaltButton
@@ -54,9 +65,18 @@ const MainNav: React.FC<HeaderProps> = ({ onOpen }) => {
   )
 }
 
-const MobileDocsNav: React.FC<HeaderProps> = ({onClose}) => {
+const MobileDocsNav: React.FC<HeaderProps> = ({ onClose }) => {
   const location = useLocation(); // Hook pour obtenir l'URL actuelle
   const [sections, setSections] = useState<Section[]>([]);
+  useEffect(() => {
+    // Vérifiez si l'URL contient l'ancre #calendly
+    if (location.hash === '#calendly') {
+      const element = document.getElementById('calendly');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -145,7 +165,7 @@ const MobileNav: React.FC<HeaderProps> = () => {
           <DrawerBody>
             <VStack spacing={10}>
               <Link as={RouterLink} to="/">ACCUEIL</Link>
-              <Link onClick={onOpen}>RÉSERVER UN CRÉNEAU</Link>
+              <Link as={RouterLink} to="/#calendly" onClick={onClose}>RÉSERVER UN CRÉNEAU</Link>
               <Link as={RouterLink} to="/docs">DOCS</Link>
               <Link href={"https://www.linkedin.com/in/luthernmr-devops-cloud-fullstack-developpeur-cicd/"} isExternal>CONTACT</Link>
               <HStack>
@@ -170,7 +190,7 @@ const MobileNav: React.FC<HeaderProps> = () => {
                 </SocialButton>
               </HStack>
             </VStack>
-            <MobileDocsNav onClose={onClose}/>
+            <MobileDocsNav onClose={onClose} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

@@ -1,36 +1,23 @@
-import { Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay } from "@chakra-ui/react";
-import HubSpotMeeting from "./Meeting"
+import { Button } from '@chakra-ui/react';
 
-interface ModalComponentProps {
-    isOpen: boolean;
-    onClose: () => void;
-    onOpen?: () => void; // onOpen is optional here if you don't need it
-  }
 
-const ModalComponent: React.FC<ModalComponentProps> = ({ isOpen , onClose, onOpen }) =>  {
-
+const ModalComponent = () => {
+    const handleButtonClick = () => {
+        window.location.hash = '#calendly';
+    };
 
     return (
         <>
-            <Button rounded={'full'} fontSize={{ base: "xs", xl: "lg" }} onClick={onOpen} boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
+            <Button 
+                rounded={'full'} 
+                fontSize={{ base: "xs", xl: "lg" }} 
+                onClick={handleButtonClick} // Appeler la fonction lors du clic
+                boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+            >
                 Je réserve un créneau pour discuter de mon projet ! 🗓
             </Button>
-
-
-
-            <Drawer placement={"left"} onClose={onClose} isOpen={isOpen} size={"full"}>
-                <Center>
-                    <DrawerOverlay />
-                    <DrawerContent>
-                        <DrawerCloseButton />
-                        <DrawerBody>
-                            <HubSpotMeeting />
-                        </DrawerBody>
-                    </DrawerContent>
-                </Center>
-            </Drawer>
         </>
     );
 }
 
-export default ModalComponent
+export default ModalComponent;

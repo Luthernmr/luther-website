@@ -4,7 +4,6 @@ import {
   Heading,
   Tag,
   Text,
-  useDisclosure,
   VStack,
   Wrap,
   WrapItem,
@@ -22,6 +21,7 @@ import Footer from "../Layout/Footer";
 import Content from "./Content";
 import Method from "./Method.tsx/Method";
 import CustomBox from "../CustomComponent/CustomBox";
+import CalendlyWidget from "../Contact/Calendly";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +36,6 @@ export default function Landing() {
     "Continuous Improvement",
   ];
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
@@ -110,7 +109,7 @@ export default function Landing() {
           w={{ base: "95%", md: "95%" }}
 
         >
-          <Header onOpen={onOpen} />
+          <Header/>
 
 
           <Center height={"80%"} flexGrow={1} >
@@ -153,7 +152,7 @@ export default function Landing() {
                       </WrapItem>
                     ))}
                   </Wrap>
-                  <MeetingButton isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+                  <MeetingButton />
                 </VStack>
 
               </Center>
@@ -167,6 +166,7 @@ export default function Landing() {
               <CustomBox minHeight={"70vh"} mt={20} alignItems={"center"}>
                 <Method />
               </CustomBox>
+              <CalendlyWidget/>
               <Footer />
             </Flex>
           </Center>

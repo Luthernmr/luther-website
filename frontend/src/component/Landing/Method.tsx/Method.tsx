@@ -1,7 +1,6 @@
 import { Box, Flex, Text, VStack, Grid, GridItem, Heading, Tooltip, Link, HStack, Tag, Image, Center } from "@chakra-ui/react";
 import CustomBox from "../../CustomComponent/CustomBox";
 import CustomChildBox from "../../CustomComponent/CustomChildBox";
-import { Link as RouterLink } from "react-router-dom";
 
 const ProjectGanttStep = () => {
   const step = [
@@ -77,8 +76,7 @@ const ProjectGanttStep = () => {
                       }}
                     >
                       <Link
-                        as={RouterLink}
-                        to={phase?.link || "#test"}
+                        href={phase?.link || "#test"}
                       >
                         <Tooltip placement='top' label={phase.hoverText} key={index} height={"100%"} bg={"#0db3d0"} color={"white"} borderRadius={"full"}>
                           <Text p={1} fontSize={"xs"} width={"100%"} h={"100%"}>{phase.title}</Text>

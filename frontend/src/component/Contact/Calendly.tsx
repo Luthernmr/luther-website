@@ -1,49 +1,33 @@
 import { useEffect, useRef } from 'react';
-
-// global.d.ts
-declare global {
-  interface Window {
-    Calendly: any; // Vous pouvez spécifier un type plus précis si nécessaire
-  }
-}
-
-export {};
+import { Box } from '@chakra-ui/react';
 
 const CalendlyWidget = () => {
-  const calendlyRef = useRef<HTMLDivElement | null>(null);
+  const widgetRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Charger le script de Calendly
+    // Charger le script Calendly si ce n'est pas déjà présent
     const script = document.createElement('script');
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
+
+    // Append the script to the body
     document.body.appendChild(script);
 
-    // Initialiser le widget
-    const initCalendly = () => {
-      if (calendlyRef.current) {
-        window.Calendly.initInlineWidget({
-          url: 'https://calendly.com/nemorluther-pro',
-          parentElement: calendlyRef.current,
-          prefill: {},
-          utm: {}
-        });
-      }
-    };
-
-    // Vérifier si Calendly est chargé
-    script.onload = initCalendly;
-
-    // Nettoyer le script au démontage du composant
     return () => {
+      // Nettoyer le script lors du démontage
       document.body.removeChild(script);
     };
   }, []);
 
   return (
-    <div 
-      ref={calendlyRef} 
+    <Box
+    mt={20}
+      className="calendly-inline-widget"
+      ref={widgetRef}
+      id='calendly'
+      data-url="https://calendly.com/nemorluther-pro/60min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=616161&text_color=ffffff&primary_color=0db3d0"
       style={{ minWidth: '320px', height: '700px' }}
+      borderRadius={"xl"}
     />
   );
 };
