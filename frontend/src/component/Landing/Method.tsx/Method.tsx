@@ -1,10 +1,9 @@
-import { Box, Flex, Text, VStack, Grid, GridItem, Heading, Tooltip, Link, HStack, Tag, Card, CardBody, Image, Center, Stack } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack, Grid, GridItem, Heading, Tooltip, Link, HStack, Tag, Image, Center } from "@chakra-ui/react";
 import CustomBox from "../../CustomComponent/CustomBox";
 import CustomChildBox from "../../CustomComponent/CustomChildBox";
 import { Link as RouterLink } from "react-router-dom";
 
 const ProjectGanttStep = () => {
-  // Step du projet avec leur titre et description
   const step = [
     { title: "Prise de contact 📞", step: "Démarrage", hoverText: "Directement sur Calendly", link: "#calendly" },
     { title: "Étude des besoins et cadrage", step: "Étape 1" },
@@ -16,7 +15,6 @@ const ProjectGanttStep = () => {
     { title: "Suivi et support ⛑️", step: "Fin", hoverText: "Génial, le support est garanti 3 mois ! 🎉" },
   ];
 
-  // Les étiquettes des étapes principales avec descriptions
   const stepLabels = [
     { label: "Démarrage", description: "Prenez rendez-vous sur Calendly. Lors de cet échange, nous discutons de votre projet, de vos objectifs et de vos besoins spécifiques pour adapter mes propositions à vos enjeux." },
     { label: "Étape 1", description: "Après avoir défini les grandes lignes du projet, j’analyse vos besoins techniques et fonctionnels, puis je propose un devis clair avec phases, délais et coûts. Un POC peut être inclus pour tester la faisabilité." },
@@ -26,29 +24,28 @@ const ProjectGanttStep = () => {
     { label: "Fin", description: "Après validation, la solution est déployée avec des sessions de formation si nécessaire. Un suivi de 3 mois est garanti pour assurer le bon fonctionnement, avec un support technique pour les évolutions." },
   ];
 
-  type Step = { title: string; step: string; hoverText?: string, link?: string }; // Assurez-vous de définir le type correctement
+  type Step = { title: string; step: string; hoverText?: string, link?: string };
 
-  // Grouper les étapes par 'step' pour déterminer le placement
   const groupedSteps = step.reduce<Array<Step[]>>((acc, phase) => {
     const index = stepLabels.map(item => item.label).indexOf(phase.step);
-    
+
     if (index !== -1) {
-        if (!acc[index]) {
-            acc[index] = []; // Initialiser le tableau si non existant
-        }
-        acc[index].push(phase); // Ajouter la phase au groupe correspondant
+      if (!acc[index]) {
+        acc[index] = [];
+      }
+      acc[index].push(phase);
     }
     return acc;
-}, []);
+  }, []);
+
 
   return (
     <Flex flexDirection={"column"}>
-      <Center p={10}>
+      <Center p={{ base: 1, lg: 10 }}>
         <Heading>Ma méthode de fonctionnement</Heading>
       </Center>
-      <CustomBox height="100%" display={{base : "none", lg: "grid"}}>
+      <CustomBox height="100%" display={{ base: "none", lg: "grid" }}>
         <VStack align="stretch" >
-          {/* Lignes de la grille principale avec les step */}
           <Flex justifyContent="space-between">
             {stepLabels.map((item, index) => (
               <Box key={index} w="100%" textAlign="center" borderInline="1px solid" borderColor={"whiteAlpha.300"} h={"100%"}>
@@ -57,7 +54,6 @@ const ProjectGanttStep = () => {
             ))}
           </Flex>
 
-          {/* Diagramme des step */}
           <Grid templateColumns="repeat(6, 1fr)" templateRows={"repeat(6, 1fr)"} gap={1} alignItems={"end"} mt={3}>
             {groupedSteps.map((group, rowIndex) => (
               <GridItem colSpan={1} rowSpan={rowIndex + 1} key={rowIndex}>
@@ -97,40 +93,34 @@ const ProjectGanttStep = () => {
         </VStack>
       </CustomBox>
 
-      {/* HStack pour les cartes avec les descriptions des étapes */}
-      <HStack spacing={4} mt={20} wrap="wrap" width={"100%"}>
+      <HStack spacing={4} mt={{ base: 1, lg: 20 }} wrap="wrap" width={"100%"}>
         <Center flexWrap={"wrap"}>
           {stepLabels.map((step, index) => (
-            <CustomBox key={index} p={0} m={2}>
-              <Card
-                maxW='2xs'
-                minH={"sm"}
-                maxH={"sm"}
+            <CustomBox key={index} m={2} minH="100%" h={"sm"}>
+              <Flex
+                maxW="2xs"
+                h={"100%"}
                 bg={"none"}
                 color={"white"}
-                display="flex"
                 flexDirection="column"
-                justifyContent="space-between" // Assure que le contenu est espacé également
+                justifyContent="space-between"
               >
-                <CardBody flexDirection="column" > {/* Permet à la carte de croître */}
+                <Box>
                   <Tag bg={"white"}>{step.label}</Tag>
-                  <Stack spacing={1}  height={"100%"}> {/* Permet à la pile de prendre l'espace restant */}
-                    <Text fontSize={"sm"} p={2}>
-                      {step.description}
-                    </Text>
-                  </Stack>
-                </CardBody>
+                </Box>
+                <Flex flexDirection={"column"} justifyContent={"space-between"} >
+                  <Text fontSize={"sm"} m={1}>
+                    {step.description}
+                  </Text>
+                </Flex>
                 <Image
                   src="https://picsum.photos/600/400"
                   alt="Illustration"
                   borderRadius="md"
-                  maxH="150px" // Définit une hauteur maximum pour l'image
-                  padding={2}
                 />
-              </Card>
+              </Flex>
             </CustomBox>
           ))}
-
         </Center>
       </HStack>
     </Flex>

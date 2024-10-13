@@ -13,12 +13,12 @@ const CustomChildBox: React.FC<CustomChildBoxProps> = ({ children, ...props }) =
     <Box
       boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
       bg="whiteAlpha.100"
-      borderRadius={"20px"}
+      borderRadius={"xl"}
       backdropFilter="auto"
       backdropBlur="15px"
       border={"1px solid"}
       borderColor={"whiteAlpha.100"}
-      p={4}
+      p={2}
       {...props} // Permet d'ajouter d'autres props si besoin
     >
       {children}

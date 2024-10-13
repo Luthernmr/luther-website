@@ -1,7 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 
 export default function InfiniteLooper({
-  speed,
   direction,
   children,
 }: {
@@ -44,7 +43,7 @@ export default function InfiniteLooper({
         ref={innerRef}
         style={{
           display: "flex",
-          animation: `scroll ${speed }s linear infinite`,
+          animation: `scroll 10s linear infinite`,
           animationDirection: direction === "right" ? "reverse" : "normal",
         }}
       >
