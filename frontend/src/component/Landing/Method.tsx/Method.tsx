@@ -16,15 +16,15 @@ const ProjectGanttStep = () => {
   ];
 
   const stepLabels = [
-    { label: "Démarrage", description: "Prenez rendez-vous sur Calendly. Lors de cet échange, nous discutons de votre projet, de vos objectifs et de vos besoins spécifiques pour adapter mes propositions à vos enjeux." },
-    { label: "Étape 1", description: "Après avoir défini les grandes lignes du projet, j’analyse vos besoins techniques et fonctionnels, puis je propose un devis clair avec phases, délais et coûts. Un POC peut être inclus pour tester la faisabilité." },
-    { label: "Étape 2", description: "Nous définissons ensemble un calendrier précis avec des jalons et des livrables. Une gestion proactive garantit la transparence et le respect des délais et du budget." },
-    { label: "Étape 3", description: "Phase de réalisation où je travaille de manière itérative, vous fournissant des points d'avancement réguliers et intégrant vos retours." },
-    { label: "Étape 4", description: "Avant la livraison, une série de tests rigoureux est effectuée pour garantir la qualité, la performance, la sécurité et la conformité aux spécifications." },
-    { label: "Fin", description: "Après validation, la solution est déployée avec des sessions de formation si nécessaire. Un suivi de 3 mois est garanti pour assurer le bon fonctionnement, avec un support technique pour les évolutions." },
+    { label: "Démarrage", description: "Prenez rendez-vous sur Calendly. Lors de cet échange, nous discutons de votre projet, de vos objectifs et de vos besoins spécifiques pour adapter mes propositions à vos enjeux.", img : "/demarrage.png" },
+    { label: "Étape 1", description: "Après avoir défini les grandes lignes du projet, j’analyse vos besoins techniques et fonctionnels, puis je propose un devis clair avec phases, délais et coûts. Un POC peut être inclus pour tester la faisabilité.", img : "/step_1.png"  },
+    { label: "Étape 2", description: "Nous définissons ensemble un calendrier précis avec des jalons et des livrables. Une gestion proactive garantit la transparence et le respect des délais et du budget.", img : "/step_2.png"  },
+    { label: "Étape 3", description: "Phase de réalisation où je travaille de manière itérative, vous fournissant des points d'avancement réguliers et intégrant vos retours.", img : "/step_3.png"  },
+    { label: "Étape 4", description: "Avant la livraison, une série de tests rigoureux est effectuée pour garantir la qualité, la performance, la sécurité et la conformité aux spécifications.", img : "/step_4.png"  },
+    { label: "Fin", description: "Après validation, la solution est déployée avec des sessions de formation si nécessaire. Un suivi de 3 mois est garanti pour assurer le bon fonctionnement, avec un support technique pour les évolutions.", img : "/end.png"  },
   ];
 
-  type Step = { title: string; step: string; hoverText?: string, link?: string };
+  type Step = { title: string; step: string; hoverText?: string, link?: string, img?: string  };
 
   const groupedSteps = step.reduce<Array<Step[]>>((acc, phase) => {
     const index = stepLabels.map(item => item.label).indexOf(phase.step);
@@ -114,7 +114,7 @@ const ProjectGanttStep = () => {
                   </Text>
                 </Flex>
                 <Image
-                  src="https://picsum.photos/600/400"
+                  src={step.img}
                   alt="Illustration"
                   borderRadius="md"
                 />

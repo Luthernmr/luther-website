@@ -13,8 +13,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/docs" element={<DocsLayout />} >
-            <Route path="/docs" element={<MarkdownViewer/>} />
-
             <Route path="/docs/:category" element={<MarkdownViewer />} />
             <Route path="/docs/:category/:docName" element={<MarkdownViewer />} />
 
